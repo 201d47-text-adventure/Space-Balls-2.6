@@ -10,5 +10,10 @@ header {
     width: 50%;
     border: 2px solid black;
     border-radius: 10px;
+}
 
+form {
+    text-align: center;
+    border: 1px solid black;
+    top: 75%;
 }
