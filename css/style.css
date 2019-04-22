@@ -5,10 +5,28 @@ header {
 #playbox {
     position: absolute;
     top: 25%;
-    right: 25%;
-    height: 25%;
-    width: 50%;
+    right: 10%;
+    left: 10%;
+    height: 50%;
+    width: 75%;
     border: 2px solid black;
     border-radius: 10px;
+}
 
+#textinsert {
+    border: 1px solid black;
+    max-height: 250px;
+    min-height: 250px;
+    max-width: 500px;
+    min-width: 500px;
+    position: relative;
+    left: 25%;
+    overflow: scroll;
+    text-align: center;
+}
+
+form {
+    text-align: center;
+        position: relative;
+    top: 20%;
 }
