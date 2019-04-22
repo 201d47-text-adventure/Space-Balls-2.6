@@ -1,4 +1,3 @@
-
     'use strict'
 
 // var fromvalidator = new validator('userform');
@@ -49,4 +48,3 @@ function choiceOne() {
     }
     startGame = document.getElementById('startbutton')
     startGame.addEventListener('click', choiceOne)
-
