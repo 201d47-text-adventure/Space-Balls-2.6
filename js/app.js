@@ -1,3 +1,4 @@
+
     'use strict'
 
 var fromvalidator = new validator('userform');
@@ -29,7 +30,3 @@ endGame = function() {
 }
 
 document.getElementById('eventTrigger').addEventListener('submit', Choice.test)
-
-
-
-
