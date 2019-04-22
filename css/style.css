@@ -11,6 +11,7 @@ header {
     width: 75%;
     border: 2px solid black;
     border-radius: 10px;
+    background-color: aliceblue;
 }
 
 #textinsert {
@@ -25,8 +26,23 @@ header {
     text-align: center;
 }
 
-form {
-    text-align: center;
-        position: relative;
-    top: 20%;
-}
+.container {
+    overflow: hidden;
+  }
+  
+  .sliding-background {
+    background: url(../img/galaxy.jpg) repeat-x;
+    height: 1000px;
+    width: 5076px;
+    animation: slide 60s linear infinite;
+  }
+  
+  @keyframes slide{
+    0%{
+      transform: translate3d(0, 0, 0);
+    }
+    100%{
+      transform: translate3d(-1692px, 0, 0);
+    }
+  }
+  
