@@ -29,7 +29,12 @@ function choiceOne() {
     var choiceOneMade = function(event) {
         event.preventDefault();
         var choiceOneCorrect = document.getElementById('textinsert');
+        if (inputAnswers === 'go around' || inputAnswers ==='go around astroid belt'){
         choiceOneCorrect.textContent = `You continue around the belt saving your ship from being damaged`
+        } else {
+            var choiceOneIncorrect = document.getElementById('textinsert');
+            choiceOneIncorrect.textContent = `Your ship has been damaged by space particle`
+        }
     };
 
 
@@ -41,5 +46,7 @@ function choiceOne() {
     
     var startGame = function(event) {
         event.preventDefault();
-        startGame.addEventListener('click', choiceOne)
     }
+    startGame = document.getElementById('startbutton')
+    startGame.addEventListener('click', choiceOne)
+
