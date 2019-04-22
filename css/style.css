@@ -1,0 +1,14 @@
+header {
+    text-align: center;
+}
+
+#playbox {
+    position: absolute;
+    top: 25%;
+    right: 25%;
+    height: 25%;
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
