@@ -3,31 +3,39 @@
 <head>
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Cute+Font" rel="stylesheet">
         <title>Text Adventure Game</title>
 </head>
 <body>
-    <div class='wrapper'>
-        <form id='nameForm'>
-        <div class='form-uname'>
-            <label id='nameLabel' for='userName'>Create a username:</label>
-            <input id='userName' type='text' maxlength='25'></input>
-        </div>
-        <div class='form-sub'>
-            <button id='subButton' type='button'>Submit</button>
-        </div>
-        </form>
+    
+    <header>Space Balls 2.6
 
+    <div class='wrapper'>
+        <div class='wrapper'>
+        <form id='nameForm'>
+            <div class='form-uname'>
+                <lable id='nameLable' for='userName'>Create a username:</lable>
+                <input id='userName' type='text' maxlength='25'></input>
+            </div>
+            <div class='form-sub'>
+                <button id='subButton' type='button'>Submit</button>
+            </div>
+        </form>
+                 
         <div>
             <p id='result'></p></div>
+        </div>         
+            
+    </header>
+    <div class="container">
+            <div class="sliding-background"></div>
         </div>
-    <header>Space Balls 2.6</header>
+        
     <section id="playbox">
         <p id="textinsert"></p>
+        <p id="radioChoice"></p>
         <div id="startbutton"></div>
         <form>
-            <p>What will you do?</p>
-            <textarea>Enter your choice here...</textarea>
-            <input id="choicemade" type="submit" name="choicemade" value="Make Your Choice"/>
         </form>
 
     </section>
@@ -35,4 +43,3 @@
     <script src="js/app.js"></script>
 </body>
 </html>
-
