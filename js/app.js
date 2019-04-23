@@ -105,15 +105,11 @@ function crewMemberChoice(){
   });
 }
 
-
-
 // //--------------------Choice 3--------------------------//
 function alienChoice(){
   var alienContinueGame = function(){
     introText.textContent = `You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, ${result.textContent}. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!`;
-    // setTimeout(function(){alienChoice();}, 5000);
-
-    //     // choice 4 function call here
+    setTimeout(function(){mogChoice();}, 5000);
   };
   var alienEndGame = function(){
     introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
@@ -145,7 +141,41 @@ function alienChoice(){
 
 }
 //--------------------Choice 4--------------------------//
+function mogChoice(){
+  var mogContinueGame = function(){
+    introText.textContent = 'Mission accomplished! We have made some loyal friends!';
 
+
+  };
+  var mogEndGame = function(){
+    introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
+
+    setTimeout(function(){ alert('GAME OVER');}, 3000);
+};
+
+  var mogEnd = document.createElement('BUTTON');
+  mogEnd.setAttribute('class', 'leftButton');
+  mogEnd.innerHTML = 'Blast em!';
+  mogEnd.addEventListener('click', mogEndGame);
+
+  var mogContinue = document.createElement('BUTTON');
+  mogContinue.setAttribute('class', 'rightButton');
+  mogContinue.textContent = 'Stop and learn to communicate with the Mogs.';
+  mogContinue.addEventListener('click', mogContinueGame);
+
+  var mogChoiceOne = document.getElementById('textinsert');
+  mogChoiceOne.textContent = 'After gaining knowledge of the universe and aliens, you and your crew gained some confidence for the journey but are cursed with knowledge! We now approach the silly Mog pack! We are presented with a tough decision...';
+  var choiceBoxes = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(mogContinue);
+  choiceBoxes.appendChild(mogEnd);
+
+  mogContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    mogContinue.parentNode.removeChild(mogContinue);
+    mogEnd.parentNode.removeChild(mogEnd);
+  });
+
+}
 
 
 
