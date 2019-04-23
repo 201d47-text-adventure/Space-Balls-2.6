@@ -2,7 +2,7 @@
 //--------------------Globals--------------------------//
 var continueGame = function() {
   introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
-  CrewMemberChoice();
+  crewMemberChoice();
 };
 var endGame = function() {
   introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
@@ -49,15 +49,15 @@ function choiceOne() {
 }
 
 //--------------------Choice 2--------------------------//
-function CrewMemberChoice(){
+function crewMemberChoice(){
   var crewMemberContinue = function() {
     introText.textContent = 'You decide to throw him in space good job!';
-    //add next function in here to continue
-  }
+    alienChoice();
+  };
   var crewMemberEndgame = function() {
     introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
     setTimeout(function(){ alert('GAME OVER'); });
-  }
+  };
 
   choice1.innerHTML = 'Capture him and feed him to the crew';
   choice1.addEventListener('click', crewMemberEndgame);
@@ -76,9 +76,27 @@ function CrewMemberChoice(){
 
 
 //--------------------Choice 3--------------------------//
+function alienChoice(){
+  var alienContinue = function(){
+    introText.textContent = 'You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, Captain. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!';
+    // choice 4 function call here
+  };
+  function alienEndGame(){
+    introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
+    setTimeout(function(){ alert('GAME OVER'); });
+  }
 
+  choice1.innerHTML = 'Welcome the aliens on board in hopes to gain allies.';
+  choice1.addEventListener('click', alienContinue);
+  choice2.innerHTML = 'These aliens are a threat! Engage in battle!';
+  choice2.addEventListener('click', alienEndGame);
 
-
+  var textAlienChoice = document.getElementById('textinsert');
+  textAlienChoice.textContent = 'You continue on your journey, weary of what other tribulations lie ahead. Just as you and your crew begin to grow comfortable, you hear a voice coming through your transmitter. \'Hello\', it says, \'This is King Roland of the great planet Druidia. Let us on board and our species can exchange knowledge!\' What do you do?';
+  var choiceBoxes = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(choice1);
+  choiceBoxes.appendChild(choice2);
+}
 //--------------------Choice 4--------------------------//
 
 
