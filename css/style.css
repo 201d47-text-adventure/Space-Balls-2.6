@@ -1,32 +1,54 @@
 header {
-    text-align: center;
+  text-align: center;
 }
 
 #playbox {
-    position: absolute;
-    top: 25%;
-    right: 10%;
-    left: 10%;
-    height: 50%;
-    width: 75%;
-    border: 2px solid black;
-    border-radius: 10px;
+  position: absolute;
+  top: 25%;
+  right: 10%;
+  left: 10%;
+  height: 50%;
+  width: 75%;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+
+#radioChoice {
+
+  position: relative;
+  bottom: 50%;
+  text-align: center;
 }
 
 #textinsert {
-    border: 1px solid black;
-    max-height: 250px;
-    min-height: 250px;
-    max-width: 500px;
-    min-width: 500px;
-    position: relative;
-    left: 25%;
-    overflow: scroll;
-    text-align: center;
+  border: 1px solid black;
+  max-height: 250px;
+  min-height: 250px;
+  max-width: 500px;
+  min-width: 500px;
+  position: relative;
+  left: 25%;
+  overflow: scroll;
+  text-align: center;
 }
 
-form {
-    text-align: center;
-        position: relative;
-    top: 20%;
+.container {
+  overflow: hidden;
+}
+
+.sliding-background {
+  background: url(../img/galaxy.jpg) repeat-x;
+  height: 1000px;
+  width: 5076px;
+  animation: slide 60s linear infinite;
+}
+
+@keyframes slide{
+  0%{
+    transform: translate3d(0, 0, 0);
+  }
+  100%{
+    transform: translate3d(-1692px, 0, 0);
+  }
 }
