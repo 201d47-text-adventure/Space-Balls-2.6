@@ -21,12 +21,12 @@ var startButton = document.createElement('button');
 //--------------------Intro--------------------------//
 var introText = document.getElementById('textinsert');
 function introductionText() {
-    introText.textContent = 'Pilot the world is in a dire situation. Over the past few years melting of the polar ice caps has accelerated. Florida and parts of Italy are completely under water. The world has banned together and found that is possible to establish ourselves on Mars. You have been elected to carry out the initial journey. Your resources will be limited for this journey. How you manage these resources will utlilmatly determine your success. The human race is counting on you in these trying times. Consider your choices carfeully to ensure the completion of your mission.';
-    startButton.textContent = 'Start Adventure';
-    insertStartButton.append(startButton);
+  introText.textContent = `${result.textContent} the world is in a dire situation. Over the past few years melting of the polar ice caps has accelerated. Florida and parts of Italy are completely under water. The world has banned together and found that is possible to establish ourselves on Mars. You have been elected to carry out the initial journey. Your resources will be limited for this journey. How you manage these resources will utlilmatly determine your success. The human race is counting on you in these trying times. Consider your choices carfeully to ensure the completion of your mission.`;
+  startButton.textContent = 'Start Adventure';
+  insertStartButton.append(startButton);
 }
-var startGame = function (event) {
-    event.preventDefault();
+var startGame = function(event) {
+  event.preventDefault();
 };
 startGame = document.getElementById('startbutton');
 startGame.addEventListener('click', function handler(){
@@ -68,6 +68,7 @@ var astroidChoice = function() {
     astroidChoiceEnd.parentNode.removeChild(astroidChoiceEnd);
   });
 };
+
 
 //--------------------Choice 2--------------------------//
 function crewMemberChoice(){
@@ -155,7 +156,4 @@ function alienChoice(){
 
 
 //--------------------Functions Called--------------------------//
-
-introductionText();
-// loadData();
 
