@@ -112,11 +112,11 @@ header {
       left:45%;
   }
   #Steven{
-      top:70%;
+      top:80%;
       left:30%;
   }
   #Jonathan{
-      top:70%;
+      top:80%;
       left:55%;
   }
   #Raven{
@@ -156,5 +156,5 @@ a:visited {
 
 .devs:hover .devDescription{
   visibility: visible;
-  opacity: 1;
+  opacity: 3;
 }
