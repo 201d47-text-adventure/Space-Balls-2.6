@@ -1,15 +1,28 @@
     'use strict'
 
-// var fromvalidator = new validator('userform');
-//     fromvalidator.addValidation('UserName', 'req', 'Please enter your User Name');
-//     fromvalidator.addValidation('UserName', 'maxlen=15', 'Max length for UserName is 15');
+function UserName() {
+    var userName = document.getElementById('userName').value;
+    var result = document.getElementById('result');
 
+    if (userName.length > 15) {
+        result.textContent = 'Username must contain less than 15 characters';
+      //alert('Username must contain at least 15 characters');
+        } else {
+          result.textContent = 'Your username is: ' + userName;
+          alert('Welcome, Captain,' + userName);
+          console.log(userName);
+        }
+       }
+var subButton = document.getElementById('subButton');
+subButton.addEventListener('click', UserName, false); 
 
+document.getElementById('UserName').innerHTML = ('');
 
 var textDisplay
 var continueGame
 var endGame
 var inputAnswers = []
+
 
 //----------------------------------------------//
 function introductionText() {
@@ -36,11 +49,10 @@ function choiceOne() {
         }
     };
 
-
     choicemade.addEventListener('click', choiceOneMade);
 
     introductionText();
-    // choiceOne();
+    choiceOne();
 
     
     var startGame = function(event) {
@@ -48,3 +60,4 @@ function choiceOne() {
     }
     startGame = document.getElementById('startbutton')
     startGame.addEventListener('click', choiceOne)
+
