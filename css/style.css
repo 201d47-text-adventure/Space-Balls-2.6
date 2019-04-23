@@ -10,7 +10,7 @@ header {
 
   #subButton{
     position: absolute;
-    bottom: 825px;
+    bottom: 85%;
     right: 78%;
   }
 
@@ -118,6 +118,7 @@ header {
   #Steven{
       top:85%;
       left:30%;
+      font-size:12px;
   }
   #Jonathan{
       top:85%;
