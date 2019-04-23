@@ -1,0 +1,132 @@
+header {
+    text-align: center;
+  }
+
+  body {
+    font-family: 'Cute Font', cursive;
+    font-size: 25px;
+    color: whitesmoke;
+  }
+
+  /* body::-webkit-scrollbar-thumb {
+      background-color: hsla(208, 100%, 30%, 0.5);
+  } */
+
+  button {
+    font-family: 'Cute Font', cursive;
+    font-size: 25px;
+    background-color: hsla(46, 74%, 52%, 0.5);
+    margin-top: 5%;
+    margin-right: 10px;
+
+  }
+
+  button:hover {
+    background-color: hsla(86, 74%, 52%, 0.5);
+
+  }
+  
+  #playbox {
+    position: absolute;
+    top: 25%;
+    right: 10%;
+    left: 10%;
+    height: 50%;
+    width: 75%;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: hsla(208, 100%, 30%, 0.5);
+  }
+  
+  #radioChoice {
+  
+    position: relative;
+    bottom: 50%;
+    text-align: center;
+  }
+  
+  #textinsert {
+    border: 1px solid black;
+    max-height: 250px;
+    min-height: 250px;
+    max-width: 500px;
+    min-width: 500px;
+    position: relative;
+    left: 25%;
+    overflow: scroll;
+    text-align: center;
+  }
+  
+  .container {
+    overflow: hidden;
+  }
+  
+  .sliding-background {
+    background: url(../img/galaxy.jpg) repeat-x;
+    height: 1000px;
+    width: 5076px;
+    animation: slide 60s linear infinite;
+  }
+  
+  @keyframes slide{
+    0%{
+      transform: translate3d(0, 0, 0);
+    }
+    100%{
+      transform: translate3d(-1692px, 0, 0);
+    }
+  }
+  .devs{
+      position: absolute;
+      top: 25%;
+      width: 300px;
+      height: 300px;
+      background-color:rgba(0, 0, 204, .5);
+      font-family: 'Amatic SC', cursive;
+      color: white;
+      text-align: right;
+      font-size: 18px;
+      transition: transform .2s;
+  }
+  .devs:hover {
+    transform: scale(1.5); 
+  }
+  #Richard{
+      left:20%;
+  }
+  #Trae{
+      left:45%;
+  }
+  #Steven{
+      top:70%;
+      left:30%;
+  }
+  #Jonathan{
+      top:70%;
+      left:55%;
+  }
+  #Raven{
+      left:70%;
+  }
+  #home{
+      position: absolute;
+      width:20%;
+      top:15%;
+      left:80%;
+      font-family: 'Amatic SC', cursive;
+      color: white;
+      font-size: 25px;
+  }
+  a:link {
+    color: white;
+    background-color:rgba(0, 0, 204, .5);
+    text-decoration: none;
+}
+a:visited {
+    color:black;
+    background-color: rgba(255,255,255,0.5);
+    text-decoration: none;
+}
+.devPic{
+     width:80%;
+}
