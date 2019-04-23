@@ -35,7 +35,7 @@ header {
     right:60%;
   }
   .rightButton{
-    right:35%;
+    left:15%;
   }
   #playbox {
     position: absolute;
@@ -58,8 +58,8 @@ header {
     border: 1px solid black;
     max-height: 250px;
     min-height: 250px;
-    max-width: 500px;
-    min-width: 500px;
+    max-width: 700px;
+    min-width: 700px;
     position: relative;
     left: 25%;
     overflow: scroll;
@@ -116,12 +116,12 @@ header {
       left:45%;
   }
   #Steven{
-      top:85%;
+      top:80%;
       left:30%;
       font-size:12px;
   }
   #Jonathan{
-      top:85%;
+      top:80%;
       left:55%;
   }
   #Raven{
@@ -161,7 +161,7 @@ a:visited {
 
 .devs:hover .devDescription{
   visibility: visible;
-  opacity: 1;
+  opacity: 3;
 }
 .devDescription{
   padding: 8px;
