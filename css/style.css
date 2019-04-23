@@ -35,7 +35,7 @@ header {
     right:60%;
   }
   .rightButton{
-    right:35%;
+    left:15%;
   }
   #playbox {
     position: absolute;
@@ -58,8 +58,8 @@ header {
     border: 1px solid black;
     max-height: 250px;
     min-height: 250px;
-    max-width: 500px;
-    min-width: 500px;
+    max-width: 700px;
+    min-width: 700px;
     position: relative;
     left: 25%;
     overflow: scroll;
