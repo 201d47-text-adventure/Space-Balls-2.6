@@ -30,10 +30,10 @@ header {
     background-color: hsla(86, 74%, 52%, 0.5);
   }
   .leftButton{
-    right:58%;
+    right:60%;
   }
   .rightButton{
-    right:42%;
+    right:35%;
   }
   
   #playbox {
@@ -102,6 +102,7 @@ header {
   }
   #Richard{
       left:20%;
+      
   }
   #Trae{
       left:45%;
@@ -141,4 +142,15 @@ a:visited {
 }
 #Richard img{
   transform: rotate(90deg);
+  margin: 10%;
+}
+
+.devDescription {
+  position: absolute;
+  visibility: hidden;
+}
+
+.devs:hover .devDescription{
+  visibility: visible;
+  opacity: 1;
 }

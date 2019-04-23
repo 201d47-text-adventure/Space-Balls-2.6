@@ -1,6 +1,16 @@
 'use strict';
 //--------------------Globals--------------------------//
-var captainName = result;
+
+// var continueGame = function() {
+//   introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
+//   CrewMemberChoice();
+// };
+// var endGame = function() {
+//   introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
+//   setTimeout(function(){ alert('GAME OVER'); }, 3000);
+// };
+//--------------------Buttons--------------------------//
+
 var continueGame = function() {
   introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
   crewMemberChoice();
@@ -32,13 +42,13 @@ var startButton = document.createElement('button');
 
 var choice1 = document.createElement('BUTTON');
 choice1.setAttribute('class', 'leftButton');
-choice1.innerHTML = 'Go around the astroid belt';
-choice1.addEventListener('click', continueGame);
+// choice1.innerHTML = 'Go around the astroid belt';
+// choice1.addEventListener('click', continueGame);
 
 var choice2 = document.createElement('BUTTON');
 choice2.setAttribute('class', 'rightButton');
-choice2.innerHTML = 'Go through the astroid belt';
-choice2.addEventListener('click', endGame);
+// choice2.innerHTML = 'Go through the astroid belt';
+// choice2.addEventListener('click', endGame);
 
 //--------------------Intro--------------------------//
 var introText = document.getElementById('textinsert');
@@ -59,6 +69,21 @@ startGame.addEventListener('click', function handler(){
 
 //--------------------Choice 1--------------------------//
 function choiceOne() {
+  var continueGame = function() {
+    introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
+    CrewMemberChoice();
+  };
+  var endGame = function() {
+    introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
+    setTimeout(function(){ alert('GAME OVER'); }, 3000);
+  };
+
+  choice1.innerHTML = 'Go around the astroid belt';
+  choice1.addEventListener('click', continueGame);
+
+  choice2.innerHTML = 'Go through the astroid belt';
+  choice2.addEventListener('click', endGame);
+
   var textChoiceOne = document.getElementById('textinsert');
   textChoiceOne.textContent = 'You have successfully gotten to orbit. There is an astroid belt in front of you. What do you do?';
   var choiceBoxes = document.getElementById('radioChoice');
@@ -74,6 +99,18 @@ function crewMemberChoice(){
   };
   var crewMemberEndgame = function() {
     introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
+
+    setTimeout(function(){ alert('GAME OVER');}, 3000);
+  }
+  choice2.setAttribute('class', 'leftButton');
+  choice2.innerHTML = 'Capture him and feed him to the crew';
+  choice2.addEventListener('click', crewMemberEndgame);
+
+  
+  choice1.setAttribute('class', 'rightButton');
+  choice1.innerHTML = 'Throw him into space';
+  choice1.addEventListener('click', crewMemberContinue);
+
     setTimeout(function(){ alert('GAME OVER'); });
   };
 
@@ -82,6 +119,7 @@ function crewMemberChoice(){
 
   choice2.innerHTML = 'Throw him into space';
   choice2.addEventListener('click', crewMemberContinue);
+
 
   var textCrewMemberChoice = document.getElementById('textinsert');
   textCrewMemberChoice.textContent = 'A crew member goes crazy and starts eating people. How do you want to deal with that Space Moses';
