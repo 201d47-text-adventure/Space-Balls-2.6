@@ -21,21 +21,21 @@ var endGame = function() {
 };
 //--------------------UserName--------------------------//
 function getUserName() {
-    var userName = document.getElementById('userName').value;
-    var result = document.getElementById('result');
-   
-    if (userName.length > 15) {
-      result.textContent = 'Username must contain less than 15 characters';
-      //alert('Username must contain at least 15 characters');
-    } else {
-      result.textContent = 'Captian ' + userName;
-      alert('Welcome, Captain ' + userName);
-      console.log(userName);
-    }
-    introductionText();
-   }
-   var subButton = document.getElementById('subButton');
-   subButton.addEventListener('click', getUserName, false);
+  var userName = document.getElementById('userName').value;
+  var result = document.getElementById('result');
+
+  if (userName.length > 15) {
+    result.textContent = 'Username must contain less than 15 characters';
+    //alert('Username must contain at least 15 characters');
+  } else {
+    result.textContent = 'Captian ' + userName;
+    alert('Welcome, Captain ' + userName);
+    console.log(userName);
+  }
+  introductionText();
+}
+var subButton = document.getElementById('subButton');
+subButton.addEventListener('click', getUserName, false);
 //---------------Buttons--------------------------//
 var insertStartButton = document.getElementById('startbutton');
 var startButton = document.createElement('button');
@@ -71,7 +71,7 @@ startGame.addEventListener('click', function handler(){
 function choiceOne() {
   var continueGame = function() {
     introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
-    CrewMemberChoice();
+    crewMemberChoice();
   };
   var endGame = function() {
     introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
@@ -101,18 +101,17 @@ function crewMemberChoice(){
     introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
 
     setTimeout(function(){ alert('GAME OVER');}, 3000);
-  }
+  };
   choice2.setAttribute('class', 'leftButton');
   choice2.innerHTML = 'Capture him and feed him to the crew';
   choice2.addEventListener('click', crewMemberEndgame);
 
-  
+
   choice1.setAttribute('class', 'rightButton');
   choice1.innerHTML = 'Throw him into space';
   choice1.addEventListener('click', crewMemberContinue);
 
-    setTimeout(function(){ alert('GAME OVER'); });
-  };
+  setTimeout(function(){ alert('GAME OVER'); });
 
   choice1.innerHTML = 'Capture him and feed him to the crew';
   choice1.addEventListener('click', crewMemberEndgame);

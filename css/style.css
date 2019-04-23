@@ -7,6 +7,12 @@ header {
   .wrapper {
     background-color:black;
     text-align: left;
+    height: 100px;
+  }
+  #subButton{
+    position: absolute;
+    bottom: 825px;
+    right: 78%;
   }
 
   body {
@@ -14,8 +20,6 @@ header {
     font-size: 25px;
     color: whitesmoke;
   }
-
-
   button {
     font-family: 'Cute Font', cursive;
     font-size: 25px;
