@@ -1,14 +1,13 @@
 header {
     text-align: center;
     background-color:black;
-
   }
-
   .wrapper {
     background-color:black;
     text-align: left;
     height: 100px;
   }
+
   #subButton{
     position: absolute;
     bottom: 825px;
@@ -29,7 +28,6 @@ header {
     position: absolute;
     margin-left:25%;
   }
-
   button:hover {
     background-color: hsla(86, 74%, 52%, 0.5);
   }
@@ -39,7 +37,6 @@ header {
   .rightButton{
     right:35%;
   }
-  
   #playbox {
     position: absolute;
     top: 25%;
@@ -51,7 +48,6 @@ header {
     border-radius: 10px;
     background-color: hsla(208, 100%, 30%, 0.5);
   }
-  
   #radioChoice {
     position: relative;
     bottom: 50%;
@@ -75,7 +71,7 @@ header {
   }
   
   .sliding-background {
-    background: url(../img/galaxy.jpg) repeat-x;
+    background: url(../img/galaxy1.jpg) repeat-x;
     height: 1300px;
     width: 5076px;
     animation: slide 60s linear infinite;
