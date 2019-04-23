@@ -1,6 +1,30 @@
 header {
     text-align: center;
   }
+
+  body {
+    font-family: 'Cute Font', cursive;
+    font-size: 25px;
+    color: whitesmoke;
+  }
+
+  /* body::-webkit-scrollbar-thumb {
+      background-color: hsla(208, 100%, 30%, 0.5);
+  } */
+
+  button {
+    font-family: 'Cute Font', cursive;
+    font-size: 25px;
+    background-color: hsla(46, 74%, 52%, 0.5);
+    margin-top: 5%;
+    margin-right: 10px;
+
+  }
+
+  button:hover {
+    background-color: hsla(86, 74%, 52%, 0.5);
+
+  }
   
   #playbox {
     position: absolute;
@@ -11,7 +35,7 @@ header {
     width: 75%;
     border: 2px solid black;
     border-radius: 10px;
-    background-color: aliceblue;
+    background-color: hsla(208, 100%, 30%, 0.5);
   }
   
   #radioChoice {
