@@ -111,13 +111,7 @@ function crewMemberChoice(){
   choice1.innerHTML = 'Throw him into space';
   choice1.addEventListener('click', crewMemberContinue);
 
-  setTimeout(function(){ alert('GAME OVER'); });
 
-  choice1.innerHTML = 'Capture him and feed him to the crew';
-  choice1.addEventListener('click', crewMemberEndgame);
-
-  choice2.innerHTML = 'Throw him into space';
-  choice2.addEventListener('click', crewMemberContinue);
 
 
   var textCrewMemberChoice = document.getElementById('textinsert');
