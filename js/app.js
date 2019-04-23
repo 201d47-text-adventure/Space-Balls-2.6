@@ -1,5 +1,6 @@
 'use strict';
 //--------------------Globals--------------------------//
+var captainName = result;
 var continueGame = function() {
   introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
   CrewMemberChoice();
@@ -8,7 +9,24 @@ var endGame = function() {
   introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
   setTimeout(function(){ alert('GAME OVER'); }, 3000);
 };
-//--------------------Buttons--------------------------//
+//--------------------UserName--------------------------//
+function getUserName() {
+    var userName = document.getElementById('userName').value;
+    var result = document.getElementById('result');
+   
+    if (userName.length > 15) {
+      result.textContent = 'Username must contain less than 15 characters';
+      //alert('Username must contain at least 15 characters');
+    } else {
+      result.textContent = 'Captian ' + userName;
+      alert('Welcome, Captain ' + userName);
+      console.log(userName);
+    }
+    introductionText();
+   }
+   var subButton = document.getElementById('subButton');
+   subButton.addEventListener('click', getUserName, false);
+//---------------Buttons--------------------------//
 var insertStartButton = document.getElementById('startbutton');
 var startButton = document.createElement('button');
 
@@ -25,7 +43,7 @@ choice2.addEventListener('click', endGame);
 //--------------------Intro--------------------------//
 var introText = document.getElementById('textinsert');
 function introductionText() {
-  introText.textContent = 'Pilot the world is in a dire situation. Over the past few years melting of the polar ice caps has accelerated. Florida and parts of Italy are completely under water. The world has banned together and found that is possible to establish ourselves on Mars. You have been elected to carry out the initial journey. Your resources will be limited for this journey. How you manage these resources will utlilmatly determine your success. The human race is counting on you in these trying times. Consider your choices carfeully to ensure the completion of your mission.';
+  introText.textContent = `${result.textContent} the world is in a dire situation. Over the past few years melting of the polar ice caps has accelerated. Florida and parts of Italy are completely under water. The world has banned together and found that is possible to establish ourselves on Mars. You have been elected to carry out the initial journey. Your resources will be limited for this journey. How you manage these resources will utlilmatly determine your success. The human race is counting on you in these trying times. Consider your choices carfeully to ensure the completion of your mission.`;
   startButton.textContent = 'Start Adventure';
   insertStartButton.append(startButton);
 }
@@ -92,6 +110,5 @@ function CrewMemberChoice(){
 
 //--------------------Functions Called--------------------------//
 
-introductionText();
 
 
