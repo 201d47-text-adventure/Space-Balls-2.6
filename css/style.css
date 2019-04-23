@@ -1,5 +1,12 @@
 header {
     text-align: center;
+    background-color:black;
+
+  }
+
+  .wrapper {
+    background-color:black;
+    text-align: left;
   }
 
   body {
@@ -8,9 +15,6 @@ header {
     color: whitesmoke;
   }
 
-  /* body::-webkit-scrollbar-thumb {
-      background-color: hsla(208, 100%, 30%, 0.5);
-  } */
 
   button {
     font-family: 'Cute Font', cursive;
