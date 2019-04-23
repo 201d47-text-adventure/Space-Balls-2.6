@@ -12,12 +12,12 @@ var insertStartButton = document.getElementById('startbutton');
 var startButton = document.createElement('button');
 
 var choice1 = document.createElement('BUTTON');
-choice1.setAttribute('id', 'leftButton');
+choice1.setAttribute('class', 'leftButton');
 choice1.innerHTML = 'Go around the astroid belt';
 choice1.addEventListener('click', continueGame);
 
 var choice2 = document.createElement('BUTTON');
-choice2.setAttribute('id', 'rightButton');
+choice2.setAttribute('class', 'rightButton');
 choice2.innerHTML = 'Go through the astroid belt';
 choice2.addEventListener('click', endGame);
 

@@ -25,10 +25,10 @@ header {
   button:hover {
     background-color: hsla(86, 74%, 52%, 0.5);
   }
-  #leftButton{
+  .leftButton{
     right:58%;
   }
-  #rightButton{
+  .rightButton{
     right:42%;
   }
   
@@ -45,7 +45,6 @@ header {
   }
   
   #radioChoice {
-  
     position: relative;
     bottom: 50%;
     text-align: center;
@@ -135,4 +134,7 @@ a:visited {
 }
 .devPic{
      width:80%;
+}
+#Richard img{
+  transform: rotate(90deg);
 }
