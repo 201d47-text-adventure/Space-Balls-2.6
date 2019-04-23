@@ -105,8 +105,6 @@ function crewMemberChoice(){
   });
 }
 
-
-
 // //--------------------Choice 3--------------------------//
 function alienChoice(){
   var alienContinueGame = function(){
@@ -118,7 +116,7 @@ function alienChoice(){
   var alienEndGame = function(){
     introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
 
-    setTimeout(function(){ alert('GAME OVER');}, 3000);
+    setTimeout(function(){ alert('You are a failure! Civilization is doomed.');}, 3000);
   };
 
   var alienEnd = document.createElement('BUTTON');

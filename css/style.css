@@ -10,7 +10,7 @@ header {
 
   #subButton{
     position: absolute;
-    bottom: 85%;
+    bottom: 90%;
     right: 78%;
   }
 
@@ -23,7 +23,7 @@ header {
     font-family: 'Cute Font', cursive;
     font-size: 25px;
     background-color: hsla(46, 74%, 52%, 0.5);
-    margin-top: 5%;
+    margin-top: 8%;
     margin-right: 10px;
     position: absolute;
     margin-left:25%;
@@ -62,7 +62,7 @@ header {
     min-width: 700px;
     position: relative;
     left: 25%;
-    overflow: scroll;
+    overflow: hidden;
     text-align: center;
   }
   
@@ -72,7 +72,7 @@ header {
   
   .sliding-background {
     background: url(../img/galaxy1.jpg) repeat-x;
-    height: 1300px;
+    height: 1600px;
     width: 5076px;
     animation: slide 60s linear infinite;
   }
