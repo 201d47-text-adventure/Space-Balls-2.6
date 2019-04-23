@@ -18,12 +18,18 @@ header {
     background-color: hsla(46, 74%, 52%, 0.5);
     margin-top: 5%;
     margin-right: 10px;
-
+    position: absolute;
+    margin-left:25%;
   }
 
   button:hover {
     background-color: hsla(86, 74%, 52%, 0.5);
-
+  }
+  #leftButton{
+    right:58%;
+  }
+  #rightButton{
+    right:42%;
   }
   
   #playbox {

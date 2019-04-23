@@ -12,10 +12,12 @@ var insertStartButton = document.getElementById('startbutton');
 var startButton = document.createElement('button');
 
 var choice1 = document.createElement('BUTTON');
+choice1.setAttribute('id', 'leftButton');
 choice1.innerHTML = 'Go around the astroid belt';
 choice1.addEventListener('click', continueGame);
 
 var choice2 = document.createElement('BUTTON');
+choice2.setAttribute('id', 'rightButton');
 choice2.innerHTML = 'Go through the astroid belt';
 choice2.addEventListener('click', endGame);
 
@@ -27,15 +29,15 @@ function introductionText() {
   insertStartButton.append(startButton);
 }
 var startGame = function(event) {
-    event.preventDefault();
-  };
-  startGame = document.getElementById('startbutton');
-  startGame.addEventListener('click', function handler(){
-    choiceOne();
-    this.removeEventListener('click', handler);
-    insertStartButton.parentNode.removeChild(insertStartButton);
-  });
-  
+  event.preventDefault();
+};
+startGame = document.getElementById('startbutton');
+startGame.addEventListener('click', function handler(){
+  choiceOne();
+  this.removeEventListener('click', handler);
+  insertStartButton.parentNode.removeChild(insertStartButton);
+});
+
 //--------------------Choice 1--------------------------//
 function choiceOne() {
   var textChoiceOne = document.getElementById('textinsert');
