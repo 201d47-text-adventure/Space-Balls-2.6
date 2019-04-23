@@ -1,24 +1,4 @@
 'use strict';
-//--------------------Globals--------------------------//
-
-// var continueGame = function() {
-//   introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
-//   CrewMemberChoice();
-// };
-// var endGame = function() {
-//   introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
-//   setTimeout(function(){ alert('GAME OVER'); }, 3000);
-// };
-//--------------------Buttons--------------------------//
-
-// var continueGame = function() {
-//   introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
-//   crewMemberChoice();
-// };
-// var endGame = function() {
-//   introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
-//   setTimeout(function(){ alert('GAME OVER'); }, 3000);
-// };
 //--------------------UserName--------------------------//
 function getUserName() {
   var userName = document.getElementById('userName').value;
@@ -26,11 +6,9 @@ function getUserName() {
 
   if (userName.length > 15) {
     result.textContent = 'Username must contain less than 15 characters';
-    //alert('Username must contain at least 15 characters');
   } else {
     result.textContent = 'Captian ' + userName;
     alert('Welcome, Captain ' + userName);
-    console.log(userName);
   }
   introductionText();
 }
@@ -39,14 +17,6 @@ subButton.addEventListener('click', getUserName, false);
 //---------------Buttons--------------------------//
 var insertStartButton = document.getElementById('startbutton');
 var startButton = document.createElement('button');
-
-// var choice1 = document.createElement('BUTTON');
-// choice1.setAttribute('class', 'leftButton');
-// choice1.innerHTML = 'Go around the astroid belt';
-
-// var choice2 = document.createElement('BUTTON');
-// choice2.setAttribute('class', 'rightButton');
-// choice2.innerHTML = 'Go through the astroid belt';
 
 //--------------------Intro--------------------------//
 var introText = document.getElementById('textinsert');
@@ -60,16 +30,17 @@ var startGame = function(event) {
 };
 startGame = document.getElementById('startbutton');
 startGame.addEventListener('click', function handler(){
-  astroidChoice();
   this.removeEventListener('click', handler);
   insertStartButton.parentNode.removeChild(insertStartButton);
+  astroidChoice();
 });
 
 //--------------------Choice 1--------------------------//
-function astroidChoice() {
+var astroidChoice = function() {
   var astroidContinueGame = function() {
     introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
     setTimeout(function(){crewMemberChoice()}, 5000);
+    
   };
   var astroidEndGame = function() {
     introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
@@ -91,12 +62,10 @@ function astroidChoice() {
   choiceBoxes.appendChild(astroidChoiceContinue);
   choiceBoxes.appendChild(astroidChoiceEnd);
 
-
-  astroidContinueGame.addEventListener('click', function handler(){
-    crewMemberChoice();
+  astroidChoiceContinue.addEventListener('click', function handler(){
     this.removeEventListener('click', handler);
-    astroidChoiceContinue.removeChild(astroidChoiceContinue);
-    astroidEndGame.removeChild(astroidChoiceEnd);
+    astroidChoiceContinue.parentNode.removeChild(astroidChoiceContinue);
+    astroidChoiceEnd.parentNode.removeChild(astroidChoiceEnd);
   });
 }
 
@@ -115,36 +84,19 @@ function crewMemberChoice(){
 
   var crewMemberContinue = document.createElement('BUTTON');
   crewMemberContinue.setAttribute('class', 'leftButton');
-  crewMemberContinue.textContent = 'Throw him into space';
+  crewMemberContinue.innerHTML = 'Throw him into space';
   crewMemberContinue.addEventListener('click', crewMemberContinueGame)
 
   var crewMemberEnd = document.createElement('BUTTON');
   crewMemberEnd.setAttribute('class', 'rightButton');
-  crewMemberEnd.textContent = 'Capture him and feed him to the crew';
+  crewMemberEnd.innerHTML = 'Capture him and feed him to the crew';
   crewMemberEnd.addEventListener('click', crewMemberEndGame)
-
-//   choice2.setAttribute('class', 'leftButton');
-//   choice2.innerHTML = 'Capture him and feed him to the crew';
-//   choice2.addEventListener('click', crewMemberEndGame);
-
-//   choice1.setAttribute('class', 'rightButton');
-//   choice1.innerHTML = 'Throw him into space';
-//   choice1.addEventListener('click', crewMemberContinueGame);
-
-//   setTimeout(function(){ alert('GAME OVER'); });
-
-//   choice1.innerHTML = 'Capture him and feed him to the crew';
-//   choice1.addEventListener('click', crewMemberEndGame);
-
-//   choice2.innerHTML = 'Throw him into space';
-//   choice2.addEventListener('click', crewMemberContinueGame);
-
 
   var textCrewMemberChoice = document.getElementById('textinsert');
   textCrewMemberChoice.textContent = 'A crew member goes crazy and starts eating people. How do you want to deal with that Space Moses';
   var choiceBoxes = document.getElementById('radioChoice');
-  choiceBoxes.appendChild(choice1);
-  choiceBoxes.appendChild(choice2);
+  choiceBoxes.appendChild(crewMemberContinue);
+  choiceBoxes.appendChild(crewMemberEnd);
 
 }
 
