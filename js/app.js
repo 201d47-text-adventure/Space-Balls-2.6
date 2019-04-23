@@ -2,6 +2,7 @@
 //--------------------Globals--------------------------//
 var continueGame = function() {
   introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
+  CrewMemberChoice();
 };
 var endGame = function() {
   introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
@@ -46,7 +47,29 @@ function choiceOne() {
 }
 
 //--------------------Choice 2--------------------------//
+function CrewMemberChoice(){
+  var crewMemberContinue = function() {
+    introText.textContent = 'You decide to throw him in space good job!';
+    //add next function in here to continue
+  }
+  var crewMemberEndgame = function() {
+    introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
+    setTimeout(function(){ alert('GAME OVER'); });
+  }
 
+  choice1.innerHTML = 'Capture him and feed him to the crew';
+  choice1.addEventListener('click', crewMemberEndgame);
+
+  choice2.innerHTML = 'Throw him into space';
+  choice2.addEventListener('click', crewMemberContinue);
+
+  var textCrewMemberChoice = document.getElementById('textinsert');
+  textCrewMemberChoice.textContent = 'A crew member goes crazy and starts eating people. How do you want to deal with that Space Moses';
+  var choiceBoxes = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(choice1);
+  choiceBoxes.appendChild(choice2);
+
+}
 
 
 
