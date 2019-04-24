@@ -1,3 +1,4 @@
+
 'use strict';
 
 var nameForm = document.getElementById('nameForm');
@@ -365,3 +366,4 @@ var goingInAstroid = function(){
 //--------------------Functions Called--------------------------//
 
 loadData();
+
