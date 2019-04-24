@@ -59,7 +59,6 @@
   }
   
   #textinsert {
-    border: 1px solid black;
     max-height: 250px;
     min-height: 250px;
     max-width: 700px;
