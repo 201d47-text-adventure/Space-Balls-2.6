@@ -312,8 +312,8 @@ var goingInAstroid = function(){
     setTimeout(function(){crewMemberChoice();}, 5000);
   };
   var goingInEndGame = function(){
-    introText.textContent = 'You were not able to avoid the Exogorth and he destroys your ship.';
-    setTimeout(function(){ alert('GAME OVER'); }, 3000);
+    introText.textContent = 'You were not able to avoid the Exogorth and he eats your ship.';
+    setTimeout(function(){ exogorthAstroid(); }, 3000);
   };
 
   var goingInContinue = document.createElement('BUTTON');
@@ -336,9 +336,51 @@ var goingInAstroid = function(){
     this.removeEventListener('click', handler);
     goingInContinue.parentNode.removeChild(goingInContinue);
     goingInEnd.parentNode.removeChild(goingInEnd);
-  });};
+  });
+  goingInEnd.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    goingInContinue.parentNode.removeChild(goingInContinue);
+    goingInEnd.parentNode.removeChild(goingInEnd);
+  });
+};
 
+var exogorthAstroid = function(){
+  var exogorthContinueGame = function(){
+    introText.textContent = 'You were successfully pooped out of the Exogorth. With your new Exogorth space ship cologne your able to move on to mars. ';
+    setTimeout(function(){crewMemberChoice();}, 5000);
+  }
+  var exogorthEndGame = function(){
+    introText.textContent = 'You were able to blast the Exogorth\'s stomach and as his guts float throw the empty abyss of space as you try to escape you encounter King Roland who enslaves you and you become his personal maid.';
+    setTimeout(function(){ druidiaChoice(); }, 5000);
+  }
 
+  var exogorthContinue = document.createElement('BUTTON');
+  exogorthContinue.setAttribute('class', 'rightButton');
+  exogorthContinue.textContent = 'Wait for the Exogorth to digest the ship and poop you out.';
+  exogorthContinue.addEventListener('click', exogorthContinueGame);
+
+  var exogorthEnd = document.createElement('BUTTON');
+  exogorthEnd.setAttribute('class', 'leftButton');
+  exogorthEnd.textContent = 'Blast the Exogorth\'s stomach so you can try to escape';
+  exogorthEnd.addEventListener('click', exogorthEndGame);
+
+  var textExogorth = document.getElementById('textinsert');
+  textExogorth.textContent = 'You ended up in the belly of the beast good luck getting out. What bad decisions do you want to do now?  ';
+  var choiceBoxes  = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(exogorthContinue);
+  choiceBoxes.appendChild(exogorthEnd);
+
+  exogorthContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    exogorthContinue.parentNode.removeChild(exogorthContinue);
+    exogorthEnd.parentNode.removeChild(exogorthEnd);
+  });
+  exogorthEnd.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    exogorthContinue.parentNode.removeChild(exogorthContinue);
+    exogorthEnd.parentNode.removeChild(exogorthEnd);
+  });
+}
 
 //--------------------Functions Called--------------------------//
 
