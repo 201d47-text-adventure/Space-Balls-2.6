@@ -1,13 +1,13 @@
 'use strict';
 var nameForm = document.getElementById('nameForm');
-var removeUserForm = function() {
+var removeUserForm = function () {
     nameForm.parentNode.removeChild(nameForm);
-        }
+}
 //--------------------UserName--------------------------//
 function getUserName() {
     var userName = document.getElementById('userName').value;
     var result = document.getElementById('result');
-    
+
     if (userName.length > 15) {
         result.textContent = 'Username must contain less than 15 characters';
     } else {
@@ -34,27 +34,21 @@ var userChoices = [];
 
 
 var loadData = function () {
-    if(localStorage.getItem('userChoices').includes('')) {
+    if (localStorage.getItem('userChoices').includes('')) {
         removeUserForm();
-        
         var result = document.getElementById('result');
         result.textContent = 'Captain ' + jParse(localStorage.getItem('User'));
-        
-
-
-
-        
     }
-    
+
     if (localStorage.getItem('userChoices').includes('secondStage')) {
         if (localStorage.getItem('userChoices').includes('thirdStage')) {
             if (localStorage.getItem('userChoices').includes('fourthStage')) {
                 if (localStorage.getItem('userChoices').includes('finalStage')) {
                     finalChoice();
-                }else{
+                } else {
                     mogChoice();
                 }
-            }else{
+            } else {
                 alienChoice();
             }
         }
@@ -62,7 +56,6 @@ var loadData = function () {
             crewMemberChoice();
         }
     }
-
 };
 
 //--------------------Intro--------------------------//
@@ -118,7 +111,7 @@ var astroidChoice = function () {
 
 
 //--------------------Choice 2--------------------------//
-var crewMemberChoice = function() {
+var crewMemberChoice = function () {
     userChoices.push('secondStage');
     localStorage.setItem('userChoices', JSON.stringify(userChoices));
     var crewMemberContinueGame = function () {
@@ -155,7 +148,7 @@ var crewMemberChoice = function() {
 }
 
 // //--------------------Choice 3--------------------------//
-var alienChoice = function() {
+var alienChoice = function () {
     userChoices.push('thirdStage');
     localStorage.setItem('userChoices', JSON.stringify(userChoices));
     var alienContinueGame = function () {
@@ -193,7 +186,7 @@ var alienChoice = function() {
 
 }
 //--------------------Choice 4--------------------------//
-var mogChoice = function() {
+var mogChoice = function () {
     userChoices.unshift('fourthStage');
     localStorage.setItem('userChoices', JSON.stringify(userChoices));
     var mogContinueGame = function () {
@@ -235,7 +228,7 @@ var mogChoice = function() {
 
 
 //--------------------Choice 5--------------------------//
-var finalChoice = function() {
+var finalChoice = function () {
     userChoices.push('finalStage');
     localStorage.setItem('userChoices', JSON.stringify(userChoices));
     var victory = function () {
