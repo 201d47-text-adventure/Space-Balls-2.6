@@ -9,11 +9,7 @@ header {
   height: 100px;
 }
 
-#subButton{
-  position: absolute;
-  bottom: 85%;
-  right: 78%;
-}
+
 
 body {
   font-family: 'Cute Font', cursive;
