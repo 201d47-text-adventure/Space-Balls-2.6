@@ -10,7 +10,7 @@ header {
 
   #subButton{
     position: absolute;
-    bottom: 90%;
+    margin-top: 1%;
     right: 78%;
   }
 
@@ -23,7 +23,7 @@ header {
     font-family: 'Cute Font', cursive;
     font-size: 25px;
     background-color: hsla(46, 74%, 52%, 0.5);
-    margin-top: 8%;
+    margin-top: 1%;
     margin-right: 10px;
     position: absolute;
     margin-left:25%;
@@ -59,13 +59,13 @@ header {
   }
   
   #textinsert {
-    border: 1px solid black;
-    max-height: 350px;
-    min-height: 350px;
+    font-size: 30px;
+    max-height: 300px;
+    min-height: 300px;
     max-width: 800px;
     min-width: 800px;
     position: relative;
-    left: 25%;
+    left: 10%;
     overflow: hidden;
     text-align: center;
   }
