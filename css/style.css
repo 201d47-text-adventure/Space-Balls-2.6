@@ -16,12 +16,6 @@
     height: 100px;
   }
 
-  #subButton{
-    position: absolute;
-    bottom: 90%;
-    right: 78%;
-  }
-
   body {
     font-family: 'Cute Font', cursive;
     font-size: 25px;
