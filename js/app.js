@@ -241,7 +241,7 @@ var finalChoice = function() {
   var failure = function () {
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
 
-    setTimeout(function () { alert('GAME OVER'); }, 3000);
+    setTimeout(function () { alert('GAME OVER'); }, 3050);
   };
 
   var finalEnd = document.createElement('BUTTON');
