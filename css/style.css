@@ -1,7 +1,15 @@
-header {
-    text-align: center;
-    background-color:black;
+#game {
+  text-align: center;
+  background-color:black;
+  color:yellow;
+  font-size: 50px;
   }
+#nameLable {
+  text-align: center;
+  background-color:black;
+  color:white;
+  font-size: 25px;
+}
   .wrapper {
     background-color:black;
     text-align: left;
