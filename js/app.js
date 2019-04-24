@@ -22,15 +22,23 @@ var startButton = document.createElement('button');
 var userChoices = [];
 
 var loadData = function () {
-    if (localStorage.getItem('userChoices').includes('secondStage')) {
-        if (localStorage.getItem('userChoices').includes('thirdStage')) {
-            alienChoice();
+  if (localStorage.getItem('userChoices').includes('secondStage')) {
+    if (localStorage.getItem('userChoices').includes('thirdStage')) {
+      if (localStorage.getItem('userChoices').includes('fourthStage')) {
+        if (localStorage.getItem('userChoices').includes('finalStage')) {
+          finalChoice();
+        }else{
+          mogChoice();
         }
-        else{
-            crewMemberChoice(); 
-        }
+      }else{
+        alienChoice();
+      }
     }
-    
+    else {
+      crewMemberChoice();
+    }
+  }
+
 };
 
 //--------------------Intro--------------------------//
@@ -40,26 +48,34 @@ function introductionText() {
   startButton.textContent = 'Start Adventure';
   insertStartButton.append(startButton);
 }
-var startGame = function(event) {
+var startGame = function (event) {
   event.preventDefault();
 };
 startGame = document.getElementById('startbutton');
+
 startGame.addEventListener('click', function handler(){
   this.removeEventListener('click', handler);
   insertStartButton.parentNode.removeChild(insertStartButton);
-  astroidChoice();
+  setupStory();
+
 });
 
+var setupText = document.getElementById('textinsert');
+function setupStory() {
+  setupText.textContent = `${result.textContent} the world is greatful for your acceptance of this dangerous misson. Time is of the essance and your ship is already prepared. Your mission to Mars awaits with all of its challenges and experiences. Keep in mind your choices will determine the fate of the world. Good luck ${result.textContent}`;
+  setTimeout(function(){astroidChoice();}, 6000);
+}
+
 //--------------------Choice 1--------------------------//
-var astroidChoice = function() {
-  var astroidContinueGame = function() {
+var astroidChoice = function () {
+  var astroidContinueGame = function () {
     introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
-    setTimeout(function(){crewMemberChoice();}, 5000);
+    setTimeout(function () { crewMemberChoice(); }, 5000);
 
   };
-  var astroidEndGame = function() {
+  var astroidEndGame = function () {
     introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
-    setTimeout(function(){ goingInAstroid(); }, 3000);
+    setTimeout(function () { goingInAstroid(); }, 3000);
   };
   var astroidChoiceContinue = document.createElement('BUTTON');
   astroidChoiceContinue.setAttribute('class', 'leftButton');
@@ -77,31 +93,30 @@ var astroidChoice = function() {
   choiceBoxes.appendChild(astroidChoiceContinue);
   choiceBoxes.appendChild(astroidChoiceEnd);
 
-  astroidChoiceContinue.addEventListener('click', function handler(){
-    this.removeEventListener('click', handler);
-    astroidChoiceContinue.parentNode.removeChild(astroidChoiceContinue);
-    astroidChoiceEnd.parentNode.removeChild(astroidChoiceEnd);
-    });
-  astroidChoiceEnd.addEventListener('click', function handler(){
+  astroidChoiceContinue.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     astroidChoiceContinue.parentNode.removeChild(astroidChoiceContinue);
     astroidChoiceEnd.parentNode.removeChild(astroidChoiceEnd);
   });
-}
-
+  astroidChoiceEnd.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    astroidChoiceContinue.parentNode.removeChild(astroidChoiceContinue);
+    astroidChoiceEnd.parentNode.removeChild(astroidChoiceEnd);
+  });
+};
 
 //--------------------Choice 2--------------------------//
-function crewMemberChoice(){
-    userChoices.push('secondStage');
-    localStorage.setItem('userChoices', JSON.stringify(userChoices));
-  var crewMemberContinueGame = function() {
+var crewMemberChoice = function() {
+  userChoices.push('secondStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  var crewMemberContinueGame = function () {
     introText.textContent = 'You decide to throw him in space good job!';
-    setTimeout(function(){alienChoice();}, 5000);
+    setTimeout(function () { alienChoice(); }, 5000);
   };
-  var crewMemberEndGame = function() {
+  var crewMemberEndGame = function () {
     introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
 
-    setTimeout(function(){ alert('GAME OVER');}, 3000);
+    setTimeout(function () { alert('GAME OVER'); }, 3000);
   };
 
   var crewMemberContinue = document.createElement('BUTTON');
@@ -120,25 +135,24 @@ function crewMemberChoice(){
   choiceBoxes.appendChild(crewMemberContinue);
   choiceBoxes.appendChild(crewMemberEnd);
 
-  crewMemberContinue.addEventListener('click', function handler(){
+  crewMemberContinue.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     crewMemberContinue.parentNode.removeChild(crewMemberContinue);
     crewMemberEnd.parentNode.removeChild(crewMemberEnd);
   });
-}
-
+};
 // //--------------------Choice 3--------------------------//
 function alienChoice(){
-    userChoices.push('thirdStage');
-    localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  userChoices.push('thirdStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var alienContinueGame = function(){
     introText.textContent = `You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, ${result.textContent}. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!`;
     setTimeout(function(){mogChoice();}, 5000);
   };
   var alienEndGame = function(){
-    introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
+    introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? We shall see!';
 
-    setTimeout(function(){ alert('You are a failure! Civilization is doomed.');}, 3000);
+    setTimeout(function(){alienAlternateChoice();}, 5000);
   };
 
   var alienEnd = document.createElement('BUTTON');
@@ -162,20 +176,26 @@ function alienChoice(){
     alienContinue.parentNode.removeChild(alienContinue);
     alienEnd.parentNode.removeChild(alienEnd);
   });
-
+  alienEnd.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    alienContinue.parentNode.removeChild(alienContinue);
+    alienEnd.parentNode.removeChild(alienEnd);
+  });
 }
 //--------------------Choice 4--------------------------//
-function mogChoice(){
-  var mogContinueGame = function(){
+var mogChoice = function() {
+  userChoices.unshift('fourthStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  var mogContinueGame = function () {
     introText.textContent = 'Mission accomplished! We have made some loyal friends!';
-    setTimeout(function(){finalChoice();}, 5000);
+    setTimeout(function () { finalChoice(); }, 5000);
 
 
   };
-  var mogEndGame = function(){
+  var mogEndGame = function () {
     introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
 
-    setTimeout(function(){ alert('GAME OVER');}, 3000);
+    setTimeout(function () { alert('GAME OVER'); }, 3000);
   };
 
   var mogEnd = document.createElement('BUTTON');
@@ -194,54 +214,122 @@ function mogChoice(){
   choiceBoxes.appendChild(mogContinue);
   choiceBoxes.appendChild(mogEnd);
 
-  mogContinue.addEventListener('click', function handler(){
+  mogContinue.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     mogContinue.parentNode.removeChild(mogContinue);
     mogEnd.parentNode.removeChild(mogEnd);
   });
 
-}
-
-
+};
 
 //--------------------Choice 5--------------------------//
-function finalChoice(){
-    var victory = function(){
-      introText.textContent = 'You have made it to Mars';
-  
-  
-    };
-    var failure = function(){
-      introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
-  
-      setTimeout(function(){ alert('GAME OVER');}, 3000);
+var finalChoice = function() {
+  userChoices.push('finalStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  var victory = function () {
+    introText.textContent = 'You have made it to Mars';
+
+
   };
-  
-    var finalEnd = document.createElement('BUTTON');
-    finalEnd.setAttribute('class', 'leftButton');
-    finalEnd.innerHTML = 'Give him the controls!';
-    finalEnd.addEventListener('click', failure);
-  
-    var noBarf = document.createElement('BUTTON');
-    noBarf.setAttribute('class', 'rightButton');
-    noBarf.textContent = 'Mogs should never be in control ESPECIALLY Barf!';
-    noBarf.addEventListener('click', victory);
-  
-    var barfsQuestion = document.getElementById('textinsert');
-    barfsQuestion.textContent = 'After becoming friends forever the Mog leader Barf asks to take control of the ship for the remainder of the journey';
-    var choiceBoxes = document.getElementById('radioChoice');
-    choiceBoxes.appendChild(noBarf);
-    choiceBoxes.appendChild(finalEnd);
-  
-    noBarf.addEventListener('click', function handler(){
-      this.removeEventListener('click', handler);
-      noBarf.parentNode.removeChild(noBarf);
-      finalEnd.parentNode.removeChild(finalEnd);
-    });
-  
+  var failure = function () {
+    introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
+
+    setTimeout(function () { alert('GAME OVER'); }, 3000);
+  };
+
+  var finalEnd = document.createElement('BUTTON');
+  finalEnd.setAttribute('class', 'leftButton');
+  finalEnd.innerHTML = 'Give him the controls!';
+  finalEnd.addEventListener('click', failure);
+
+  var noBarf = document.createElement('BUTTON');
+  noBarf.setAttribute('class', 'rightButton');
+  noBarf.textContent = 'Mogs should never be in control ESPECIALLY Barf!';
+  noBarf.addEventListener('click', victory);
+
+  var barfsQuestion = document.getElementById('textinsert');
+  barfsQuestion.textContent = 'After becoming friends forever the Mog leader Barf asks to take control of the ship for the remainder of the journey';
+  var choiceBoxes = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(noBarf);
+  choiceBoxes.appendChild(finalEnd);
+
+  noBarf.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    noBarf.parentNode.removeChild(noBarf);
+    finalEnd.parentNode.removeChild(finalEnd);
+  });
+
+};
+// ----------------------Alternative AlienChoice------------------------
+function alienAlternateChoice(){
+  userChoices.push('thirdAlternateStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  var alienAlternateContinueGame = function(){
+    introText.textContent = `King Roland is a reasonable leader, ${result.textContent}. He is contented in feeling as though you have learned your place as the lesser species. He takes his people and leaves your ship, allowing you to continue on your journey but he took half of your food with him as a price for your insolence.`;
+    setTimeout(function(){mogChoice();}, 5000);
+  };
+  var alienAlternateEndGame = function(){
+    introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
+
+    setTimeout(function(){ alert('You are a failure! Civilization is doomed.');}, 3000);
+  };
+
+  var alienAlternateEnd = document.createElement('BUTTON');
+  alienAlternateEnd.setAttribute('class', 'leftButton');
+  alienAlternateEnd.innerHTML = 'Fight through your dying breath!';
+  alienAlternateEnd.addEventListener('click', alienAlternateEndGame);
+
+  var alienAlternateContinue = document.createElement('BUTTON');
+  alienAlternateContinue.setAttribute('class', 'rightButton');
+  alienAlternateContinue.innerHTML = 'Apologize and beg for mercy.';
+  alienAlternateContinue.addEventListener('click', alienAlternateContinueGame);
+
+  var textAlienAlternateChoice = document.getElementById('textinsert');
+  textAlienAlternateChoice.textContent = 'You engage in battle with the warriors of Planet Druidia! You were poorly equipped and lacked the knowledge to have such a battle, but you make up for in grit! Unfortunately you lose the battle and King Roland takes control of your ship.';
+  var choiceBoxes = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(alienAlternateContinue);
+  choiceBoxes.appendChild(alienAlternateEnd);
+
+  alienAlternateContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    alienAlternateContinue.parentNode.removeChild(alienAlternateContinue);
+    alienAlternateEnd.parentNode.removeChild(alienAlternateEnd);
+  });
+
 }
 
 
+var goingInAstroid = function(){
+  var goingInContinueGame = function(){
+    introText.textContent = 'You Scared the Exogorth and got away safely.';
+    setTimeout(function(){crewMemberChoice();}, 5000);
+  };
+  var goingInEndGame = function(){
+    introText.textContent = 'You were not able to avoid the Exogorth and he destroys your ship.';
+    setTimeout(function(){ alert('GAME OVER'); }, 3000);
+  };
+
+  var goingInContinue = document.createElement('BUTTON');
+  goingInContinue.setAttribute('class', 'rightButton');
+  goingInContinue.textContent = 'Shoot the Exogorth with a missile!';
+  goingInContinue.addEventListener('click', goingInContinueGame);
+
+  var goingInEnd = document.createElement('BUTTON');
+  goingInEnd.setAttribute('class', 'leftButton');
+  goingInEnd.textContent = 'Try to avoid the monster';
+  goingInEnd.addEventListener('click', goingInEndGame);
+
+  var textGoingIn = document.getElementById('textinsert');
+  textGoingIn.textContent = 'You decided to go through the astroid belt, not a smart choice there there is a Exogorth (The astroid monster from Star Wars) that is attacking the ship. What should you do?';
+  var choiceBoxes  = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(goingInContinue);
+  choiceBoxes.appendChild(goingInEnd);
+
+  goingInContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    goingInContinue.parentNode.removeChild(goingInContinue);
+    goingInEnd.parentNode.removeChild(goingInEnd);
+  })};
 
 
 

@@ -1,4 +1,3 @@
-
 #game {
   text-align: center;
   background-color:black;
@@ -15,12 +14,6 @@
     background-color:black;
     text-align: left;
     height: 100px;
-  }
-
-  #subButton{
-    position: absolute;
-    bottom: 90%;
-    right: 78%;
   }
 
   body {
@@ -83,7 +76,7 @@
     background: url(../img/galaxy1.jpg) repeat-x;
     height: 1600px;
     width: 6000px;
-    animation: slide 50s linear infinite;
+    animation: slide 55s linear infinite;
   }
   
   @keyframes slide{
