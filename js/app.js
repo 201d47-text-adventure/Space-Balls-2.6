@@ -59,7 +59,7 @@ var astroidChoice = function() {
   };
   var astroidEndGame = function() {
     introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
-    setTimeout(function(){ alert('GAME OVER'); }, 3000);
+    setTimeout(function(){ goingInAstroid(); }, 3000);
   };
   var astroidChoiceContinue = document.createElement('BUTTON');
   astroidChoiceContinue.setAttribute('class', 'leftButton');
@@ -81,8 +81,13 @@ var astroidChoice = function() {
     this.removeEventListener('click', handler);
     astroidChoiceContinue.parentNode.removeChild(astroidChoiceContinue);
     astroidChoiceEnd.parentNode.removeChild(astroidChoiceEnd);
+    });
+  astroidChoiceEnd.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    astroidChoiceContinue.parentNode.removeChild(astroidChoiceContinue);
+    astroidChoiceEnd.parentNode.removeChild(astroidChoiceEnd);
   });
-};
+}
 
 
 //--------------------Choice 2--------------------------//
@@ -171,7 +176,7 @@ function mogChoice(){
     introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
 
     setTimeout(function(){ alert('GAME OVER');}, 3000);
-};
+  };
 
   var mogEnd = document.createElement('BUTTON');
   mogEnd.setAttribute('class', 'leftButton');
@@ -234,7 +239,8 @@ function finalChoice(){
       finalEnd.parentNode.removeChild(finalEnd);
     });
   
-  }
+}
+
 
 
 
