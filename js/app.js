@@ -74,8 +74,8 @@ var astroidChoice = function () {
 
   };
   var astroidEndGame = function () {
-    introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
-    setTimeout(function () { goingInAstroid(); }, 5000);
+    introText.textContent = `You managed to dodge a few asteroids, but you couldn't dodge them all and your ship has lost functionality in one of its engines, disabling your ship's ability to make right hand turns. All lefts from here on out, ${result.textContent} `;
+    setTimeout(function () { goingInAstroid(); }, 7000);
   };
   var astroidChoiceContinue = document.createElement('BUTTON');
   astroidChoiceContinue.setAttribute('class', 'leftButton');
