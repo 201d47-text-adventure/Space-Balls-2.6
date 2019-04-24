@@ -380,6 +380,51 @@ var exogorthAstroid = function(){
     exogorthContinue.parentNode.removeChild(exogorthContinue);
     exogorthEnd.parentNode.removeChild(exogorthEnd);
   });
+};
+
+// -------------------------druidia--------------------------------
+
+function druidiaChoice(){
+  userChoices.push('druidiaChoiceStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  var druidiaContinueGame = function(){
+    if(!disableCrewEnd){
+      introText.textContent = `You have won the Princess over with your kindness, ${result.textContent}. To show you her gratitude she teaches you to dance the floss. Then returns you safely to your ship. You are back on track. Well done.`;
+      setTimeout(function(){mogChoice();}, 7000);
+    }
+  };
+  var druidiaEngGame = function(){
+    introText.textContent = 'King Roland shows no mercy on you for your treacherous act! You will be tortured and executed and any kin you have will be forever hunted and destroyed.';
+    if (!disableCrewEnd) {
+      disableCrewEnd = true;
+      druidiaEnd.style.backgroundColor = '#616161';
+    }
+
+    setTimeout(function(){ alert('You are a failure! Civilization is doomed.');}, 3000);
+  };
+
+  var druidiaContinue = document.createElement('BUTTON');
+  druidiaContinue.setAttribute('class', 'leftButton');
+  druidiaContinue.innerHTML = 'Assist the Princess to her bed and go for help!';
+  druidiaContinue.addEventListener('click', druidiaContinueGame);
+
+  var druidiaEnd = document.createElement('BUTTON');
+  druidiaEnd.setAttribute('class', 'rightButton');
+  druidiaEnd.innerHTML = 'Throw the Princess overboard! You will never stop fighting for your cause!';
+  druidiaEnd.addEventListener('click', druidiaEngGame);
+
+  var textdruidiaChoice = document.getElementById('textinsert');
+  textdruidiaChoice.textContent = 'You are taken onto the ship of the Druidians. Weeks go by and you are forced to serve the royal family. One afternoon as you are going through your tasks you hear a woman crying. It it the Kings daughter, Princess Vespa. She has been injured trying to teach herself the moves to the newest Druidian dance craze, The Floss. She needs help and you are the only person nearby.';
+  var choiceBoxes = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(druidiaContinue);
+  choiceBoxes.appendChild(druidiaEnd);
+
+  druidiaContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    druidiaContinue.parentNode.removeChild(druidiaContinue);
+    druidiaEnd.parentNode.removeChild(druidiaEnd);
+  });
+
 }
 
 //--------------------Functions Called--------------------------//
