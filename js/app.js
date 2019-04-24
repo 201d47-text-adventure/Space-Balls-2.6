@@ -232,7 +232,6 @@ var finalChoice = function() {
     event.preventDefault();
     var referencebackground = document.getElementById('sliding');
     referencebackground.removeAttribute('class');
-    referencebackground.setAttribute('class', 'mars');
   }
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var victory = function () {
