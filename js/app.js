@@ -1,27 +1,51 @@
 'use strict';
+var nameForm = document.getElementById('nameForm');
+var removeUserForm = function() {
+    nameForm.parentNode.removeChild(nameForm);
+        }
 //--------------------UserName--------------------------//
 function getUserName() {
     var userName = document.getElementById('userName').value;
     var result = document.getElementById('result');
-
+    
     if (userName.length > 15) {
         result.textContent = 'Username must contain less than 15 characters';
     } else {
         result.textContent = 'Captian ' + userName;
         alert('Welcome, Captain ' + userName);
+        localStorage.setItem('User', JSON.stringify(userName));
+
     }
     introductionText();
     event.preventDefault();
+    removeUserForm();
+
+
 }
 var submitForm = document.getElementById('nameForm');
+
 submitForm.addEventListener('submit', getUserName, false);
+
 //---------------Buttons--------------------------//
 var insertStartButton = document.getElementById('startbutton');
 var startButton = document.createElement('button');
-
+var jParse = JSON.parse;
 var userChoices = [];
 
+
 var loadData = function () {
+    if(localStorage.getItem('userChoices').includes('')) {
+        removeUserForm();
+        
+        var result = document.getElementById('result');
+        result.textContent = 'Captain ' + jParse(localStorage.getItem('User'));
+        
+
+
+
+        
+    }
+    
     if (localStorage.getItem('userChoices').includes('secondStage')) {
         if (localStorage.getItem('userChoices').includes('thirdStage')) {
             if (localStorage.getItem('userChoices').includes('fourthStage')) {
@@ -135,7 +159,8 @@ var alienChoice = function() {
     userChoices.push('thirdStage');
     localStorage.setItem('userChoices', JSON.stringify(userChoices));
     var alienContinueGame = function () {
-        introText.textContent = `You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, ${result.textContent}. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!`;
+        var nameUser = 'Captain ' + jParse(localStorage.getItem('User'));
+        introText.textContent = `You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, ${nameUser}. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!`;
         setTimeout(function () { mogChoice(); }, 5000);
     };
     var alienEndGame = function () {
