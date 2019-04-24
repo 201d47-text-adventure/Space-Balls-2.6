@@ -106,19 +106,24 @@ var astroidChoice = function () {
 };
 
 //--------------------Choice 2--------------------------//
+var disableCrewEnd = false;
 var crewMemberChoice = function() {
-  userChoices.push('secondStage');
-  localStorage.setItem('userChoices', JSON.stringify(userChoices));
-  var crewMemberContinueGame = function () {
-    introText.textContent = 'You decide to throw him in space good job!';
-    setTimeout(function () { alienChoice(); }, 5000);
-  };
-  var crewMemberEndGame = function () {
-    introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
-
-    setTimeout(function () { alert('GAME OVER'); }, 3000);
-  };
-
+    userChoices.push('secondStage');
+    localStorage.setItem('userChoices', JSON.stringify(userChoices));
+    var crewMemberContinueGame = function () {
+      if(!disableCrewEnd){
+        introText.textContent = 'You decide to throw him into space....... good job! That Space Moses got what he deserved. But it does make you wonder if he was onto something.......';
+        setTimeout(function () { alienChoice(); }, 5000);
+      }
+    };
+    var crewMemberEndGame = function () {
+        introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
+        if (!disableCrewEnd) {
+          disableCrewEnd = true;          
+          crewMemberContinue.style.backgroundColor = "#616161";
+        }
+        setTimeout(function () { alert('GAME OVER'); }, 3000);
+    };
   var crewMemberContinue = document.createElement('BUTTON');
   crewMemberContinue.setAttribute('class', 'leftButton');
   crewMemberContinue.innerHTML = 'Throw him into space';
