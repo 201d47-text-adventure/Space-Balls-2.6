@@ -11,9 +11,10 @@ function getUserName() {
     alert('Welcome, Captain ' + userName);
   }
   introductionText();
+  event.preventDefault();
 }
-var subButton = document.getElementById('subButton');
-subButton.addEventListener('click', getUserName, false);
+var submitForm = document.getElementById('nameForm');
+submitForm.addEventListener('submit', getUserName, false);
 //---------------Buttons--------------------------//
 var insertStartButton = document.getElementById('startbutton');
 var startButton = document.createElement('button');
