@@ -21,6 +21,7 @@
     font-size: 25px;
     color: whitesmoke;
   }
+
   button {
     font-family: 'Cute Font', cursive;
     font-size: 25px;
@@ -29,6 +30,7 @@
     margin-right: 10px;
     position: absolute;
     margin-left:25%;
+    max-width: 200px;
   }
   button:hover {
     background-color: hsla(86, 74%, 52%, 0.5);
@@ -86,6 +88,15 @@
     100%{
       transform: translate3d(-3500px, 0, 0);
     }
+  }
+  #body{
+    font-family: 'Cute Font', cursive;
+    font-size: 25px;
+    color: whitesmoke;
+    background-image: url(../img/mars.jpg);
+    width: 100%;
+    height:100%;
+
   }
   .devs{
       position: absolute;

@@ -6,30 +6,27 @@
         <link href="https://fonts.googleapis.com/css?family=Cute+Font" rel="stylesheet">
         <title>Text Adventure Game</title>
 </head>
-<body>
+<body id="body">
+    <article>
     
-    <header id='game'>Space Balls 2.6
+        <header id='game'>Space Balls 2.6
 
-    <div class='wrapper'>
         <div class='wrapper'>
-        <form id='nameForm'>
-            <div class='form-uname'>
-                <lable id='nameLable' for='userName'>Create a username:</lable>
-                <input id='userName' type='text' maxlength='25'></input>
+            <form id='nameForm'>
+                <div class='form-uname'>
+                    <lable id='nameLable' for='userName'>Create a username:</lable>
+                    <input id='userName' type='text' maxlength='25'></input>
+                </div>
+            </form>
+                 
+            <div>
+            <p id='result'></p>
             </div>
-        </form>
-        <div class="gameMusic">
-                <audio autoplay controls>
-                    <source src="img/2001 A Space Odyssey Theme song.mp3" type="audio/mpeg"></audio>
-        </div>      
-        <div>
-            <p id='result'></p></div>
         </div>         
             
     </header>
-    
-    <div class="container">
-            <div class="sliding-background"></div>
+    <div class="container" id="img-container">
+            <div class="sliding-background" id="sliding"></div>
         </div>
     <nav id="home"><a href=about_us.html>Meet the Developers</a></nav>
     <section id="playbox">
@@ -39,7 +36,7 @@
         <form>
         </form>
     </section>
-    
+    </article>
     <script src="js/app.js"></script>
 </body>
 </html>
