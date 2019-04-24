@@ -179,3 +179,10 @@ a:visited {
 .devDescription{
   padding: 8px;
 }
+
+.gameMusic {
+  background-color: black;
+  width: 200px;
+  display: flex;
+  overflow: visible;
+}
