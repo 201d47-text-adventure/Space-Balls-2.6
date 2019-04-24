@@ -106,19 +106,24 @@ var astroidChoice = function () {
 };
 
 //--------------------Choice 2--------------------------//
+var disableCrewEnd = false;
 var crewMemberChoice = function() {
-  userChoices.push('secondStage');
-  localStorage.setItem('userChoices', JSON.stringify(userChoices));
-  var crewMemberContinueGame = function () {
-    introText.textContent = 'You decide to throw him in space good job!';
-    setTimeout(function () { alienChoice(); }, 5000);
-  };
-  var crewMemberEndGame = function () {
-    introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
-
-    setTimeout(function () { alert('GAME OVER'); }, 3000);
-  };
-
+    userChoices.push('secondStage');
+    localStorage.setItem('userChoices', JSON.stringify(userChoices));
+    var crewMemberContinueGame = function () {
+      if(!disableCrewEnd){
+        introText.textContent = 'You decide to throw him into space....... good job! That Space Moses got what he deserved. But it does make you wonder if he was onto something.......';
+        setTimeout(function () { alienChoice(); }, 5000);
+      }
+    };
+    var crewMemberEndGame = function () {
+        introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
+        if (!disableCrewEnd) {
+          disableCrewEnd = true;          
+          crewMemberContinue.style.backgroundColor = "#616161";
+        }
+        setTimeout(function () { alert('GAME OVER'); }, 3000);
+    };
   var crewMemberContinue = document.createElement('BUTTON');
   crewMemberContinue.setAttribute('class', 'leftButton');
   crewMemberContinue.innerHTML = 'Throw him into space';
@@ -234,7 +239,12 @@ var finalChoice = function() {
   var failure = function () {
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
 
-    setTimeout(function () { alert('GAME OVER'); }, 3000);
+    setTimeout(function () { wormHole(); }, 3000);
+  };
+
+  var wormHole = function() {
+      introText.textContent = 'As Barf steered toward the surface of Mars his attention suddenly snaps to an anomly in the distance. He jerks the ship toward it and accelerates. IT IS A WORM HOLE!?!?!?! You wrestle with him for control but it is too late the gravatational pull sucks the ship in. Everything goes black then.......';
+      setTimeout(function() {astroidChoice();}, 10000)
   };
 
   var finalEnd = document.createElement('BUTTON');
@@ -254,6 +264,12 @@ var finalChoice = function() {
   choiceBoxes.appendChild(finalEnd);
 
   noBarf.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    noBarf.parentNode.removeChild(noBarf);
+    finalEnd.parentNode.removeChild(finalEnd);
+  });
+  
+  finalEnd.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     noBarf.parentNode.removeChild(noBarf);
     finalEnd.parentNode.removeChild(finalEnd);
