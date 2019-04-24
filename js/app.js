@@ -11,9 +11,10 @@ function getUserName() {
     alert('Welcome, Captain ' + userName);
   }
   introductionText();
+  event.preventDefault();
 }
-var subButton = document.getElementById('subButton');
-subButton.addEventListener('click', getUserName, false);
+var submitForm = document.getElementById('nameForm');
+submitForm.addEventListener('submit', getUserName, false);
 //---------------Buttons--------------------------//
 var insertStartButton = document.getElementById('startbutton');
 var startButton = document.createElement('button');
@@ -21,15 +22,15 @@ var startButton = document.createElement('button');
 var userChoices = [];
 
 var loadData = function () {
-  if (localStorage.getItem('userChoices').includes('secondStage')) {
-    if (localStorage.getItem('userChoices').includes('thirdStage')) {
-      alienChoice();
+    if (localStorage.getItem('userChoices').includes('secondStage')) {
+        if (localStorage.getItem('userChoices').includes('thirdStage')) {
+            alienChoice();
+        }
+        else{
+            crewMemberChoice(); 
+        }
     }
-    else{
-      crewMemberChoice();
-    }
-  }
-
+    
 };
 
 //--------------------Intro--------------------------//
@@ -86,8 +87,8 @@ var astroidChoice = function() {
 
 //--------------------Choice 2--------------------------//
 function crewMemberChoice(){
-  userChoices.push('secondStage');
-  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+    userChoices.push('secondStage');
+    localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var crewMemberContinueGame = function() {
     introText.textContent = 'You decide to throw him in space good job!';
     setTimeout(function(){alienChoice();}, 5000);
@@ -123,8 +124,8 @@ function crewMemberChoice(){
 
 // //--------------------Choice 3--------------------------//
 function alienChoice(){
-  userChoices.push('thirdStage');
-  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+    userChoices.push('thirdStage');
+    localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var alienContinueGame = function(){
     introText.textContent = `You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, ${result.textContent}. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!`;
     setTimeout(function(){mogChoice();}, 5000);
@@ -170,7 +171,7 @@ function mogChoice(){
     introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
 
     setTimeout(function(){ alert('GAME OVER');}, 3000);
-  };
+};
 
   var mogEnd = document.createElement('BUTTON');
   mogEnd.setAttribute('class', 'leftButton');
@@ -195,40 +196,45 @@ function mogChoice(){
   });
 
 }
+
+
+
 //--------------------Choice 5--------------------------//
 function finalChoice(){
-  var victory = function(){
-    introText.textContent = 'You have made it to Mars';
+    var victory = function(){
+      introText.textContent = 'You have made it to Mars';
+  
+  
+    };
+    var failure = function(){
+      introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
+  
+      setTimeout(function(){ alert('GAME OVER');}, 3000);
   };
-  var failure = function(){
-    introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
-
-    setTimeout(function(){ alert('GAME OVER');}, 3000);
-  };
-
-  var finalEnd = document.createElement('BUTTON');
-  finalEnd.setAttribute('class', 'leftButton');
-  finalEnd.innerHTML = 'Give him the controls!';
-  finalEnd.addEventListener('click', failure);
-
-  var noBarf = document.createElement('BUTTON');
-  noBarf.setAttribute('class', 'rightButton');
-  noBarf.textContent = 'Mogs should never be in control ESPECIALLY Barf!';
-  noBarf.addEventListener('click', victory);
-
-  var barfsQuestion = document.getElementById('textinsert');
-  barfsQuestion.textContent = 'After becoming friends forever the Mog leader Barf asks to take control of the ship for the remainder of the journey';
-  var choiceBoxes = document.getElementById('radioChoice');
-  choiceBoxes.appendChild(noBarf);
-  choiceBoxes.appendChild(finalEnd);
-
-  noBarf.addEventListener('click', function handler(){
-    this.removeEventListener('click', handler);
-    noBarf.parentNode.removeChild(noBarf);
-    finalEnd.parentNode.removeChild(finalEnd);
-  });
-
-}
+  
+    var finalEnd = document.createElement('BUTTON');
+    finalEnd.setAttribute('class', 'leftButton');
+    finalEnd.innerHTML = 'Give him the controls!';
+    finalEnd.addEventListener('click', failure);
+  
+    var noBarf = document.createElement('BUTTON');
+    noBarf.setAttribute('class', 'rightButton');
+    noBarf.textContent = 'Mogs should never be in control ESPECIALLY Barf!';
+    noBarf.addEventListener('click', victory);
+  
+    var barfsQuestion = document.getElementById('textinsert');
+    barfsQuestion.textContent = 'After becoming friends forever the Mog leader Barf asks to take control of the ship for the remainder of the journey';
+    var choiceBoxes = document.getElementById('radioChoice');
+    choiceBoxes.appendChild(noBarf);
+    choiceBoxes.appendChild(finalEnd);
+  
+    noBarf.addEventListener('click', function handler(){
+      this.removeEventListener('click', handler);
+      noBarf.parentNode.removeChild(noBarf);
+      finalEnd.parentNode.removeChild(finalEnd);
+    });
+  
+  }
 
 
 
