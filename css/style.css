@@ -169,7 +169,9 @@ a:visited {
   padding: 8px;
 }
 
-#gameMusic {
-  margin-top: 10%;
-  margin-right: 10%;
+.gameMusic {
+  background-color: black;
+  width: 200px;
+  display: flex;
+  overflow: visible;
 }
