@@ -121,22 +121,18 @@ function crewMemberChoice(){
   });
 }
 
-
-
 // //--------------------Choice 3--------------------------//
 function alienChoice(){
     userChoices.push('thirdStage');
     localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var alienContinueGame = function(){
     introText.textContent = `You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, ${result.textContent}. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!`;
-    // setTimeout(function(){alienChoice();}, 5000);
-
-    //     // choice 4 function call here
+    setTimeout(function(){mogChoice();}, 5000);
   };
   var alienEndGame = function(){
     introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
 
-    setTimeout(function(){ alert('GAME OVER');}, 3000);
+    setTimeout(function(){ alert('You are a failure! Civilization is doomed.');}, 3000);
   };
 
   var alienEnd = document.createElement('BUTTON');
@@ -163,12 +159,81 @@ function alienChoice(){
 
 }
 //--------------------Choice 4--------------------------//
+function mogChoice(){
+  var mogContinueGame = function(){
+    introText.textContent = 'Mission accomplished! We have made some loyal friends!';
+    setTimeout(function(){finalChoice();}, 5000);
 
+
+  };
+  var mogEndGame = function(){
+    introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
+
+    setTimeout(function(){ alert('GAME OVER');}, 3000);
+};
+
+  var mogEnd = document.createElement('BUTTON');
+  mogEnd.setAttribute('class', 'leftButton');
+  mogEnd.innerHTML = 'Blast em!';
+  mogEnd.addEventListener('click', mogEndGame);
+
+  var mogContinue = document.createElement('BUTTON');
+  mogContinue.setAttribute('class', 'rightButton');
+  mogContinue.textContent = 'Try and befriend the Mogs.';
+  mogContinue.addEventListener('click', mogContinueGame);
+
+  var mogChoiceOne = document.getElementById('textinsert');
+  mogChoiceOne.textContent = 'After gaining knowledge of the universe and aliens, you and your crew gained some confidence for the journey but are cursed with knowledge! We now approach the silly Mog pack! We are presented with a tough decision...';
+  var choiceBoxes = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(mogContinue);
+  choiceBoxes.appendChild(mogEnd);
+
+  mogContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    mogContinue.parentNode.removeChild(mogContinue);
+    mogEnd.parentNode.removeChild(mogEnd);
+  });
+
+}
 
 
 
 //--------------------Choice 5--------------------------//
-
+function finalChoice(){
+    var victory = function(){
+      introText.textContent = 'You have made it to Mars';
+  
+  
+    };
+    var failure = function(){
+      introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
+  
+      setTimeout(function(){ alert('GAME OVER');}, 3000);
+  };
+  
+    var finalEnd = document.createElement('BUTTON');
+    finalEnd.setAttribute('class', 'leftButton');
+    finalEnd.innerHTML = 'Give him the controls!';
+    finalEnd.addEventListener('click', failure);
+  
+    var noBarf = document.createElement('BUTTON');
+    noBarf.setAttribute('class', 'rightButton');
+    noBarf.textContent = 'Mogs should never be in control ESPECIALLY Barf!';
+    noBarf.addEventListener('click', victory);
+  
+    var barfsQuestion = document.getElementById('textinsert');
+    barfsQuestion.textContent = 'After becoming friends forever the Mog leader Barf asks to take control of the ship for the remainder of the journey';
+    var choiceBoxes = document.getElementById('radioChoice');
+    choiceBoxes.appendChild(noBarf);
+    choiceBoxes.appendChild(finalEnd);
+  
+    noBarf.addEventListener('click', function handler(){
+      this.removeEventListener('click', handler);
+      noBarf.parentNode.removeChild(noBarf);
+      finalEnd.parentNode.removeChild(finalEnd);
+    });
+  
+  }
 
 
 

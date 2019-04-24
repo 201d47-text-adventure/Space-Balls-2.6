@@ -1,3 +1,4 @@
+
 header {
   text-align: center;
   background-color:black;
@@ -166,3 +167,181 @@ opacity: 1;
 .devDescription{
 padding: 8px;
 }
+
+#game {
+  text-align: center;
+  background-color:black;
+  color:yellow;
+  font-size: 50px;
+  }
+#nameLable {
+  text-align: center;
+  background-color:black;
+  color:white;
+  font-size: 25px;
+}
+  .wrapper {
+    background-color:black;
+    text-align: left;
+    height: 100px;
+  }
+
+  #subButton{
+    position: absolute;
+    bottom: 90%;
+    right: 78%;
+  }
+
+  body {
+    font-family: 'Cute Font', cursive;
+    font-size: 25px;
+    color: whitesmoke;
+  }
+  button {
+    font-family: 'Cute Font', cursive;
+    font-size: 25px;
+    background-color: hsla(46, 74%, 52%, 0.5);
+    margin-top: 8%;
+    margin-right: 10px;
+    position: absolute;
+    margin-left:25%;
+  }
+  button:hover {
+    background-color: hsla(86, 74%, 52%, 0.5);
+  }
+  .leftButton{
+    right:60%;
+  }
+  .rightButton{
+    left:15%;
+  }
+  #playbox {
+    position: absolute;
+    top: 25%;
+    right: 10%;
+    left: 10%;
+    height: 50%;
+    width: 75%;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: hsla(208, 100%, 30%, 0.5);
+  }
+  #radioChoice {
+    position: relative;
+    bottom: 50%;
+    text-align: center;
+  }
+  
+  #textinsert {
+    border: 1px solid black;
+    max-height: 250px;
+    min-height: 250px;
+    max-width: 700px;
+    min-width: 700px;
+    position: relative;
+    left: 25%;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .container {
+    overflow: hidden;
+  }
+  
+  .sliding-background {
+    background: url(../img/galaxy1.jpg) repeat-x;
+    height: 1600px;
+    width: 5076px;
+    animation: slide 60s linear infinite;
+  }
+  
+  @keyframes slide{
+    0%{
+      transform: translate3d(0, 0, 0);
+    }
+    100%{
+      transform: translate3d(-1692px, 0, 0);
+    }
+  }
+  .devs{
+      position: absolute;
+      top: 25%;
+      width: 300px;
+      height: 400px;
+      background-color:rgba(0, 0, 204, .5);
+      font-family: 'Amatic SC', cursive;
+      color: white;
+      text-align: right;
+      font-size: 14px;
+      transition: transform .2s;
+  }
+  .devs:hover {
+    transform: scale(1.5); 
+  }
+  .devs h2{
+    font-size:20px;
+    padding: 10px;
+  }
+  .devs img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+  #Richard{
+      left:20%;
+  }
+  #Trae{
+      left:45%;
+  }
+  #Steven{
+      top:80%;
+      left:30%;
+      font-size:12px;
+  }
+  #Jonathan{
+      top:80%;
+      left:55%;
+  }
+  #Raven{
+      left:70%;
+  }
+#home{
+    position: absolute;
+    width:20%;
+    top:15%;
+    left:80%;
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    font-size: 25px;
+  }
+a:link {
+  color: white;
+  background-color:rgba(0, 0, 204, .5);
+  text-decoration: none;
+}
+a:visited {
+    color:black;
+    background-color: rgba(255,255,255,0.5);
+    text-decoration: none;
+}
+.devPic{
+     width:80%;
+}
+#Richard img{
+  transform: rotate(90deg);
+  margin: 10%;
+}
+
+.devDescription {
+  position: absolute;
+  visibility: hidden;
+}
+
+.devs:hover .devDescription{
+  visibility: visible;
+  opacity: 3;
+}
+.devDescription{
+  padding: 8px;
+}
+
