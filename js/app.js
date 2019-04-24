@@ -239,7 +239,12 @@ var finalChoice = function() {
   var failure = function () {
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
 
-    setTimeout(function () { alert('GAME OVER'); }, 3000);
+    setTimeout(function () { wormHole(); }, 3000);
+  };
+
+  var wormHole = function() {
+      introText.textContent = 'As Barf steered toward the surface of Mars his attention suddenly snaps to an anomly in the distance. He jerks the ship toward it and accelerates. IT IS A WORM HOLE!?!?!?! You wrestle with him for control but it is too late the gravatational pull sucks the ship in. Everything goes black then.......';
+      setTimeout(function() {astroidChoice();}, 10000)
   };
 
   var finalEnd = document.createElement('BUTTON');
@@ -259,6 +264,12 @@ var finalChoice = function() {
   choiceBoxes.appendChild(finalEnd);
 
   noBarf.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    noBarf.parentNode.removeChild(noBarf);
+    finalEnd.parentNode.removeChild(finalEnd);
+  });
+  
+  finalEnd.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     noBarf.parentNode.removeChild(noBarf);
     finalEnd.parentNode.removeChild(finalEnd);
