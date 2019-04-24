@@ -63,7 +63,7 @@ startGame.addEventListener('click', function handler(){
 var setupText = document.getElementById('textinsert');
 function setupStory() {
   setupText.textContent = `${result.textContent} the world is greatful for your acceptance of this dangerous misson. Time is of the essance and your ship is already prepared. Your mission to Mars awaits with all of its challenges and experiences. Keep in mind your choices will determine the fate of the world. Good luck ${result.textContent}`;
-  setTimeout(function(){astroidChoice();}, 6000);
+  setTimeout(function(){astroidChoice();}, 8000);
 }
 
 //--------------------Choice 1--------------------------//
@@ -276,14 +276,14 @@ function alienAlternateChoice(){
     setTimeout(function(){mogChoice();}, 7000);
   };
   var alienAlternateEndGame = function(){
-    introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
+    introText.textContent = 'All Druidia wanted was friendship but you are too foolish for that! You will never be able to beat the great Duidia!';
 
-    setTimeout(function(){ alert('You are a failure! Civilization is doomed.');}, 3000);
+    setTimeout(function(){druidiaChoice();}, 7000);
   };
 
   var alienAlternateEnd = document.createElement('BUTTON');
   alienAlternateEnd.setAttribute('class', 'leftButton');
-  alienAlternateEnd.innerHTML = 'Fight through your dying breath!';
+  alienAlternateEnd.innerHTML = 'Keep fighting! Show them we are not a weak species!';
   alienAlternateEnd.addEventListener('click', alienAlternateEndGame);
 
   var alienAlternateContinue = document.createElement('BUTTON');
@@ -292,7 +292,7 @@ function alienAlternateChoice(){
   alienAlternateContinue.addEventListener('click', alienAlternateContinueGame);
 
   var textAlienAlternateChoice = document.getElementById('textinsert');
-  textAlienAlternateChoice.textContent = 'You engage in battle with the warriors of Planet Druidia! You were poorly equipped and lacked the knowledge to have such a battle, but you make up for in grit! Unfortunately you lose the battle and King Roland takes control of your ship.';
+  textAlienAlternateChoice.textContent = 'You engage in battle with the warriors of Planet Druidia! You were poorly equipped and lacked the knowledge to have such a battle. Unfortunately you lose and King Roland takes control of your ship.';
   var choiceBoxes = document.getElementById('radioChoice');
   choiceBoxes.appendChild(alienAlternateContinue);
   choiceBoxes.appendChild(alienAlternateEnd);
@@ -347,11 +347,11 @@ var goingInAstroid = function(){
 var exogorthAstroid = function(){
   var exogorthContinueGame = function(){
     introText.textContent = 'You were successfully pooped out of the Exogorth. With your new Exogorth space ship cologne your able to move on to mars. ';
-    setTimeout(function(){crewMemberChoice();}, 5000);
+    setTimeout(function(){crewMemberChoice();}, 8000);
   }
   var exogorthEndGame = function(){
-    introText.textContent = 'You were able to blast the Exogorth\'s stomach and as his guts float throw the empty abyss of space as you try to escape you encounter King Roland who enslaves you and you become his personal maid.';
-    setTimeout(function(){ druidiaChoice(); }, 5000);
+    introText.textContent = 'You were able to blast the Exogorth\'s stomach and as his guts float throw the empty abyss of space as you try to escape you encounter King Roland who enslaves you for killing his favorite Exogorth and you become his personal maid.';
+    setTimeout(function(){ druidiaChoice(); }, 9000);
   }
 
   var exogorthContinue = document.createElement('BUTTON');
@@ -390,7 +390,7 @@ function druidiaChoice(){
   var druidiaContinueGame = function(){
     if(!disableCrewEnd){
       introText.textContent = `You have won the Princess over with your kindness, ${result.textContent}. To show you her gratitude she teaches you to dance the floss. Then returns you safely to your ship. You are back on track. Well done.`;
-      setTimeout(function(){mogChoice();}, 7000);
+      setTimeout(function(){mogChoice();}, 8000);
     }
   };
   var druidiaEngGame = function(){
