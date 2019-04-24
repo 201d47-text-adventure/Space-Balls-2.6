@@ -75,7 +75,7 @@ var astroidChoice = function () {
   };
   var astroidEndGame = function () {
     introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
-    setTimeout(function () { alert('GAME OVER'); }, 3000);
+    setTimeout(function () { goingInAstroid(); }, 3000);
   };
   var astroidChoiceContinue = document.createElement('BUTTON');
   astroidChoiceContinue.setAttribute('class', 'leftButton');
@@ -94,6 +94,11 @@ var astroidChoice = function () {
   choiceBoxes.appendChild(astroidChoiceEnd);
 
   astroidChoiceContinue.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    astroidChoiceContinue.parentNode.removeChild(astroidChoiceContinue);
+    astroidChoiceEnd.parentNode.removeChild(astroidChoiceEnd);
+  });
+  astroidChoiceEnd.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     astroidChoiceContinue.parentNode.removeChild(astroidChoiceContinue);
     astroidChoiceEnd.parentNode.removeChild(astroidChoiceEnd);
@@ -292,6 +297,40 @@ function alienAlternateChoice(){
   });
 
 }
+
+
+var goingInAstroid = function(){
+  var goingInContinueGame = function(){
+    introText.textContent = 'You Scared the Exogorth and got away safely.';
+    setTimeout(function(){crewMemberChoice();}, 5000);
+  };
+  var goingInEndGame = function(){
+    introText.textContent = 'You were not able to avoid the Exogorth and he destroys your ship.';
+    setTimeout(function(){ alert('GAME OVER'); }, 3000);
+  };
+
+  var goingInContinue = document.createElement('BUTTON');
+  goingInContinue.setAttribute('class', 'rightButton');
+  goingInContinue.textContent = 'Shoot the Exogorth with a missile!';
+  goingInContinue.addEventListener('click', goingInContinueGame);
+
+  var goingInEnd = document.createElement('BUTTON');
+  goingInEnd.setAttribute('class', 'leftButton');
+  goingInEnd.textContent = 'Try to avoid the monster';
+  goingInEnd.addEventListener('click', goingInEndGame);
+
+  var textGoingIn = document.getElementById('textinsert');
+  textGoingIn.textContent = 'You decided to go through the astroid belt, not a smart choice there there is a Exogorth (The astroid monster from Star Wars) that is attacking the ship. What should you do?';
+  var choiceBoxes  = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(goingInContinue);
+  choiceBoxes.appendChild(goingInEnd);
+
+  goingInContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    goingInContinue.parentNode.removeChild(goingInContinue);
+    goingInEnd.parentNode.removeChild(goingInEnd);
+  })};
+
 
 
 //--------------------Functions Called--------------------------//
