@@ -144,6 +144,7 @@ function alienChoice(){
 function mogChoice(){
   var mogContinueGame = function(){
     introText.textContent = 'Mission accomplished! We have made some loyal friends!';
+    setTimeout(function(){finalChoice();}, 5000);
 
 
   };
@@ -160,7 +161,7 @@ function mogChoice(){
 
   var mogContinue = document.createElement('BUTTON');
   mogContinue.setAttribute('class', 'rightButton');
-  mogContinue.textContent = 'Stop and learn to communicate with the Mogs.';
+  mogContinue.textContent = 'Try and befriend the Mogs.';
   mogContinue.addEventListener('click', mogContinueGame);
 
   var mogChoiceOne = document.getElementById('textinsert');
@@ -180,7 +181,41 @@ function mogChoice(){
 
 
 //--------------------Choice 5--------------------------//
-
+function finalChoice(){
+    var victory = function(){
+      introText.textContent = 'You have made it to Mars';
+  
+  
+    };
+    var failure = function(){
+      introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
+  
+      setTimeout(function(){ alert('GAME OVER');}, 3000);
+  };
+  
+    var finalEnd = document.createElement('BUTTON');
+    finalEnd.setAttribute('class', 'leftButton');
+    finalEnd.innerHTML = 'Give him the controls!';
+    finalEnd.addEventListener('click', failure);
+  
+    var noBarf = document.createElement('BUTTON');
+    noBarf.setAttribute('class', 'rightButton');
+    noBarf.textContent = 'Mogs should never be in control ESPECIALLY Barf!';
+    noBarf.addEventListener('click', victory);
+  
+    var barfsQuestion = document.getElementById('textinsert');
+    barfsQuestion.textContent = 'After becoming friends forever the Mog leader Barf asks to take control of the ship for the remainder of the journey';
+    var choiceBoxes = document.getElementById('radioChoice');
+    choiceBoxes.appendChild(noBarf);
+    choiceBoxes.appendChild(finalEnd);
+  
+    noBarf.addEventListener('click', function handler(){
+      this.removeEventListener('click', handler);
+      noBarf.parentNode.removeChild(noBarf);
+      finalEnd.parentNode.removeChild(finalEnd);
+    });
+  
+  }
 
 
 
