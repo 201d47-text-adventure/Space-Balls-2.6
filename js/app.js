@@ -11,9 +11,10 @@ function getUserName() {
     alert('Welcome, Captain ' + userName);
   }
   introductionText();
+  event.preventDefault();
 }
-var subButton = document.getElementById('subButton');
-subButton.addEventListener('click', getUserName, false);
+var submitForm = document.getElementById('nameForm');
+submitForm.addEventListener('submit', getUserName, false);
 //---------------Buttons--------------------------//
 var insertStartButton = document.getElementById('startbutton');
 var startButton = document.createElement('button');
@@ -130,9 +131,9 @@ function alienChoice(){
     setTimeout(function(){mogChoice();}, 5000);
   };
   var alienEndGame = function(){
-    introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
+    introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? We shall see!';
 
-    setTimeout(function(){ alert('You are a failure! Civilization is doomed.');}, 3000);
+    setTimeout(function(){alienAlternateChoice();}, 5000);
   };
 
   var alienEnd = document.createElement('BUTTON');
@@ -156,7 +157,11 @@ function alienChoice(){
     alienContinue.parentNode.removeChild(alienContinue);
     alienEnd.parentNode.removeChild(alienEnd);
   });
-
+  alienEnd.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    alienContinue.parentNode.removeChild(alienContinue);
+    alienEnd.parentNode.removeChild(alienEnd);
+  });
 }
 //--------------------Choice 4--------------------------//
 function mogChoice(){
@@ -195,10 +200,13 @@ function mogChoice(){
   });
 
 }
+
 //--------------------Choice 5--------------------------//
 function finalChoice(){
   var victory = function(){
     introText.textContent = 'You have made it to Mars';
+
+
   };
   var failure = function(){
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
@@ -227,10 +235,44 @@ function finalChoice(){
     noBarf.parentNode.removeChild(noBarf);
     finalEnd.parentNode.removeChild(finalEnd);
   });
+}
+// ----------------------Alternative AlienChoice------------------------
+function alienAlternateChoice(){
+  userChoices.push('thirdAlternateStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  var alienAlternateContinueGame = function(){
+    introText.textContent = `King Roland is a reasonable leader, ${result.textContent}. He is contented in feeling as though you have learned your place as the lesser species. He takes his people and leaves your ship, allowing you to continue on your journey but he took half of your food with him as a price for your insolence.`;
+    setTimeout(function(){mogChoice();}, 5000);
+  };
+  var alienAlternateEndGame = function(){
+    introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
+
+    setTimeout(function(){ alert('You are a failure! Civilization is doomed.');}, 3000);
+  };
+
+  var alienAlternateEnd = document.createElement('BUTTON');
+  alienAlternateEnd.setAttribute('class', 'leftButton');
+  alienAlternateEnd.innerHTML = 'Fight through your dying breath!';
+  alienAlternateEnd.addEventListener('click', alienAlternateEndGame);
+
+  var alienAlternateContinue = document.createElement('BUTTON');
+  alienAlternateContinue.setAttribute('class', 'rightButton');
+  alienAlternateContinue.innerHTML = 'Apologize and beg for mercy.';
+  alienAlternateContinue.addEventListener('click', alienAlternateContinueGame);
+
+  var textAlienAlternateChoice = document.getElementById('textinsert');
+  textAlienAlternateChoice.textContent = 'You engage in battle with the warriors of Planet Druidia! You were poorly equipped and lacked the knowledge to have such a battle, but you make up for in grit! Unfortunately you lose the battle and King Roland takes control of your ship.';
+  var choiceBoxes = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(alienAlternateContinue);
+  choiceBoxes.appendChild(alienAlternateEnd);
+
+  alienAlternateContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    alienAlternateContinue.parentNode.removeChild(alienAlternateContinue);
+    alienAlternateEnd.parentNode.removeChild(alienAlternateEnd);
+  });
 
 }
-
-
 
 
 //--------------------Functions Called--------------------------//
