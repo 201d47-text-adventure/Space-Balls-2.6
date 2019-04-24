@@ -106,7 +106,7 @@ var crewMemberChoice = function() {
     userChoices.push('secondStage');
     localStorage.setItem('userChoices', JSON.stringify(userChoices));
     var crewMemberContinueGame = function () {
-        introText.textContent = 'You decide to throw him in space good job!';
+        introText.textContent = 'You decide to throw him into space....... good job! That Space Moses got what he deserved. But it does make you wonder if he was onto something.......';
         setTimeout(function () { alienChoice(); }, 5000);
     };
     var crewMemberEndGame = function () {
@@ -126,7 +126,7 @@ var crewMemberChoice = function() {
     crewMemberEnd.addEventListener('click', crewMemberEndGame);
 
     var textCrewMemberChoice = document.getElementById('textinsert');
-    textCrewMemberChoice.textContent = 'A crew member goes crazy and starts eating people. How do you want to deal with that Space Moses';
+    textCrewMemberChoice.textContent = 'The detour around the astroid belt wreaked havoc on the crew. As a result a member of the crew goes crazy and starts eating people. How do you want to deal with that Space Moses?';
     var choiceBoxes = document.getElementById('radioChoice');
     choiceBoxes.appendChild(crewMemberContinue);
     choiceBoxes.appendChild(crewMemberEnd);
@@ -234,7 +234,7 @@ var finalChoice = function() {
 
     var finalEnd = document.createElement('BUTTON');
     finalEnd.setAttribute('class', 'leftButton');
-    finalEnd.innerHTML = 'Give him the controls!';
+    finalEnd.innerHTML = 'Give him the controls! What could happen right?';
     finalEnd.addEventListener('click', failure);
 
     var noBarf = document.createElement('BUTTON');
