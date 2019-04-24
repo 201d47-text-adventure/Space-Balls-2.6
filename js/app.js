@@ -52,11 +52,19 @@ var startGame = function (event) {
     event.preventDefault();
 };
 startGame = document.getElementById('startbutton');
-startGame.addEventListener('click', function handler() {
-    this.removeEventListener('click', handler);
-    insertStartButton.parentNode.removeChild(insertStartButton);
-    astroidChoice();
+
+startGame.addEventListener('click', function handler(){
+  this.removeEventListener('click', handler);
+  insertStartButton.parentNode.removeChild(insertStartButton);
+  setupStory();
+
 });
+
+var setupText = document.getElementById('textinsert');
+function setupStory() {
+setupText.textContent = `${result.textContent} the world is greatful for your acceptance of this dangerous misson. Time is of the essance and your ship is already prepared. Your mission to Mars awaits with all of its challenges and experiences. Keep in mind your choices will determine the fate of the world. Good luck ${result.textContent}`;
+setTimeout(function(){astroidChoice();}, 6000);
+}
 
 //--------------------Choice 1--------------------------//
 var astroidChoice = function () {
