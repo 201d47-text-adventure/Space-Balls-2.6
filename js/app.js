@@ -24,9 +24,17 @@ var userChoices = [];
 var loadData = function () {
   if (localStorage.getItem('userChoices').includes('secondStage')) {
     if (localStorage.getItem('userChoices').includes('thirdStage')) {
-      alienChoice();
+      if (localStorage.getItem('userChoices').includes('fourthStage')) {
+        if (localStorage.getItem('userChoices').includes('finalStage')) {
+          finalChoice();
+        }else{
+          mogChoice();
+        }
+      }else{
+        alienChoice();
+      }
     }
-    else{
+    else {
       crewMemberChoice();
     }
   }
@@ -40,26 +48,34 @@ function introductionText() {
   startButton.textContent = 'Start Adventure';
   insertStartButton.append(startButton);
 }
-var startGame = function(event) {
+var startGame = function (event) {
   event.preventDefault();
 };
 startGame = document.getElementById('startbutton');
+
 startGame.addEventListener('click', function handler(){
   this.removeEventListener('click', handler);
   insertStartButton.parentNode.removeChild(insertStartButton);
-  astroidChoice();
+  setupStory();
+
 });
 
+var setupText = document.getElementById('textinsert');
+function setupStory() {
+  setupText.textContent = `${result.textContent} the world is greatful for your acceptance of this dangerous misson. Time is of the essance and your ship is already prepared. Your mission to Mars awaits with all of its challenges and experiences. Keep in mind your choices will determine the fate of the world. Good luck ${result.textContent}`;
+  setTimeout(function(){astroidChoice();}, 6000);
+}
+
 //--------------------Choice 1--------------------------//
-var astroidChoice = function() {
-  var astroidContinueGame = function() {
+var astroidChoice = function () {
+  var astroidContinueGame = function () {
     introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
-    setTimeout(function(){crewMemberChoice();}, 5000);
+    setTimeout(function () { crewMemberChoice(); }, 5000);
 
   };
-  var astroidEndGame = function() {
+  var astroidEndGame = function () {
     introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
-    setTimeout(function(){ alert('GAME OVER'); }, 3000);
+    setTimeout(function () { alert('GAME OVER'); }, 3000);
   };
   var astroidChoiceContinue = document.createElement('BUTTON');
   astroidChoiceContinue.setAttribute('class', 'leftButton');
@@ -77,26 +93,25 @@ var astroidChoice = function() {
   choiceBoxes.appendChild(astroidChoiceContinue);
   choiceBoxes.appendChild(astroidChoiceEnd);
 
-  astroidChoiceContinue.addEventListener('click', function handler(){
+  astroidChoiceContinue.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     astroidChoiceContinue.parentNode.removeChild(astroidChoiceContinue);
     astroidChoiceEnd.parentNode.removeChild(astroidChoiceEnd);
   });
 };
 
-
 //--------------------Choice 2--------------------------//
-function crewMemberChoice(){
+var crewMemberChoice = function() {
   userChoices.push('secondStage');
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
-  var crewMemberContinueGame = function() {
+  var crewMemberContinueGame = function () {
     introText.textContent = 'You decide to throw him in space good job!';
-    setTimeout(function(){alienChoice();}, 5000);
+    setTimeout(function () { alienChoice(); }, 5000);
   };
-  var crewMemberEndGame = function() {
+  var crewMemberEndGame = function () {
     introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
 
-    setTimeout(function(){ alert('GAME OVER');}, 3000);
+    setTimeout(function () { alert('GAME OVER'); }, 3000);
   };
 
   var crewMemberContinue = document.createElement('BUTTON');
@@ -115,13 +130,12 @@ function crewMemberChoice(){
   choiceBoxes.appendChild(crewMemberContinue);
   choiceBoxes.appendChild(crewMemberEnd);
 
-  crewMemberContinue.addEventListener('click', function handler(){
+  crewMemberContinue.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     crewMemberContinue.parentNode.removeChild(crewMemberContinue);
     crewMemberEnd.parentNode.removeChild(crewMemberEnd);
   });
-}
-
+};
 // //--------------------Choice 3--------------------------//
 function alienChoice(){
   userChoices.push('thirdStage');
@@ -164,17 +178,19 @@ function alienChoice(){
   });
 }
 //--------------------Choice 4--------------------------//
-function mogChoice(){
-  var mogContinueGame = function(){
+var mogChoice = function() {
+  userChoices.unshift('fourthStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  var mogContinueGame = function () {
     introText.textContent = 'Mission accomplished! We have made some loyal friends!';
-    setTimeout(function(){finalChoice();}, 5000);
+    setTimeout(function () { finalChoice(); }, 5000);
 
 
   };
-  var mogEndGame = function(){
+  var mogEndGame = function () {
     introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
 
-    setTimeout(function(){ alert('GAME OVER');}, 3000);
+    setTimeout(function () { alert('GAME OVER'); }, 3000);
   };
 
   var mogEnd = document.createElement('BUTTON');
@@ -193,25 +209,27 @@ function mogChoice(){
   choiceBoxes.appendChild(mogContinue);
   choiceBoxes.appendChild(mogEnd);
 
-  mogContinue.addEventListener('click', function handler(){
+  mogContinue.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     mogContinue.parentNode.removeChild(mogContinue);
     mogEnd.parentNode.removeChild(mogEnd);
   });
 
-}
+};
 
 //--------------------Choice 5--------------------------//
-function finalChoice(){
-  var victory = function(){
+var finalChoice = function() {
+  userChoices.push('finalStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  var victory = function () {
     introText.textContent = 'You have made it to Mars';
 
 
   };
-  var failure = function(){
+  var failure = function () {
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
 
-    setTimeout(function(){ alert('GAME OVER');}, 3000);
+    setTimeout(function () { alert('GAME OVER'); }, 3000);
   };
 
   var finalEnd = document.createElement('BUTTON');
@@ -230,12 +248,13 @@ function finalChoice(){
   choiceBoxes.appendChild(noBarf);
   choiceBoxes.appendChild(finalEnd);
 
-  noBarf.addEventListener('click', function handler(){
+  noBarf.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     noBarf.parentNode.removeChild(noBarf);
     finalEnd.parentNode.removeChild(finalEnd);
   });
-}
+
+};
 // ----------------------Alternative AlienChoice------------------------
 function alienAlternateChoice(){
   userChoices.push('thirdAlternateStage');
