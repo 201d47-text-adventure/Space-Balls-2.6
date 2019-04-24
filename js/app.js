@@ -18,6 +18,20 @@ subButton.addEventListener('click', getUserName, false);
 var insertStartButton = document.getElementById('startbutton');
 var startButton = document.createElement('button');
 
+var userChoices = [];
+
+var loadData = function () {
+    if (localStorage.getItem('userChoices').includes('secondStage')) {
+        if (localStorage.getItem('userChoices').includes('thirdStage')) {
+            alienChoice();
+        }
+        else{
+            crewMemberChoice(); 
+        }
+    }
+    
+};
+
 //--------------------Intro--------------------------//
 var introText = document.getElementById('textinsert');
 function introductionText() {
@@ -72,6 +86,8 @@ var astroidChoice = function() {
 
 //--------------------Choice 2--------------------------//
 function crewMemberChoice(){
+    userChoices.push('secondStage');
+    localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var crewMemberContinueGame = function() {
     introText.textContent = 'You decide to throw him in space good job!';
     setTimeout(function(){alienChoice();}, 5000);
@@ -107,6 +123,8 @@ function crewMemberChoice(){
 
 // //--------------------Choice 3--------------------------//
 function alienChoice(){
+    userChoices.push('thirdStage');
+    localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var alienContinueGame = function(){
     introText.textContent = `You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, ${result.textContent}. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!`;
     setTimeout(function(){mogChoice();}, 5000);
@@ -222,5 +240,4 @@ function finalChoice(){
 
 //--------------------Functions Called--------------------------//
 
-
-
+loadData();
