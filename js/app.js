@@ -161,7 +161,7 @@ function mogChoice(){
 
   var mogContinue = document.createElement('BUTTON');
   mogContinue.setAttribute('class', 'rightButton');
-  mogContinue.textContent = 'Stop and learn to communicate with the Mogs.';
+  mogContinue.textContent = 'Try and befriend the Mogs.';
   mogContinue.addEventListener('click', mogContinueGame);
 
   var mogChoiceOne = document.getElementById('textinsert');
