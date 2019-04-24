@@ -305,7 +305,7 @@ var goingInAstroid = function(){
     setTimeout(function(){crewMemberChoice();}, 5000);
   };
   var goingInEndGame = function(){
-    introText.textContent = 'You were not able to avoid the Exogorth and he destroys your ship.';
+    introText.textContent = 'You were not able to avoid the Exogorth and he eats your ship.';
     setTimeout(function(){ alert('GAME OVER'); }, 3000);
   };
 

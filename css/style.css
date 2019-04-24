@@ -168,3 +168,8 @@ a:visited {
 .devDescription{
   padding: 8px;
 }
+
+#gameMusic {
+  margin-top: 10%;
+  margin-right: 10%;
+}
