@@ -70,12 +70,12 @@ function setupStory() {
 var astroidChoice = function () {
   var astroidContinueGame = function () {
     introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
-    setTimeout(function () { crewMemberChoice(); }, 5000);
+    setTimeout(function () { crewMemberChoice(); }, 7000);
 
   };
   var astroidEndGame = function () {
     introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
-    setTimeout(function () { goingInAstroid(); }, 3000);
+    setTimeout(function () { goingInAstroid(); }, 5000);
   };
   var astroidChoiceContinue = document.createElement('BUTTON');
   astroidChoiceContinue.setAttribute('class', 'leftButton');
@@ -108,22 +108,22 @@ var astroidChoice = function () {
 //--------------------Choice 2--------------------------//
 var disableCrewEnd = false;
 var crewMemberChoice = function() {
-    userChoices.push('secondStage');
-    localStorage.setItem('userChoices', JSON.stringify(userChoices));
-    var crewMemberContinueGame = function () {
-      if(!disableCrewEnd){
-        introText.textContent = 'You decide to throw him into space....... good job! That Space Moses got what he deserved. But it does make you wonder if he was onto something.......';
-        setTimeout(function () { alienChoice(); }, 5000);
-      }
-    };
-    var crewMemberEndGame = function () {
-        introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
-        if (!disableCrewEnd) {
-          disableCrewEnd = true;          
-          crewMemberContinue.style.backgroundColor = "#616161";
-        }
-        setTimeout(function () { alert('GAME OVER'); }, 3000);
-    };
+  userChoices.push('secondStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  var crewMemberContinueGame = function () {
+    if(!disableCrewEnd){
+      introText.textContent = 'You decide to throw him into space....... good job! That Space Moses got what he deserved. But it does make you wonder if he was onto something.......';
+      setTimeout(function () { alienChoice(); }, 7000);
+    }
+  };
+  var crewMemberEndGame = function () {
+    introText.textContent = 'You and your crew ended up loving the taste of human flesh and you guys ate each other.';
+    if (!disableCrewEnd) {
+      disableCrewEnd = true;
+      crewMemberContinue.style.backgroundColor = '#616161';
+    }
+    setTimeout(function () { alert('GAME OVER'); }, 3000);
+  };
   var crewMemberContinue = document.createElement('BUTTON');
   crewMemberContinue.setAttribute('class', 'leftButton');
   crewMemberContinue.innerHTML = 'Throw him into space';
@@ -152,7 +152,7 @@ function alienChoice(){
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var alienContinueGame = function(){
     introText.textContent = `You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, ${result.textContent}. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!`;
-    setTimeout(function(){mogChoice();}, 5000);
+    setTimeout(function(){mogChoice();}, 7000);
   };
   var alienEndGame = function(){
     introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? We shall see!';
@@ -194,8 +194,6 @@ var mogChoice = function() {
   var mogContinueGame = function () {
     introText.textContent = 'Mission accomplished! We have made some loyal friends!';
     setTimeout(function () { finalChoice(); }, 5000);
-
-
   };
   var mogEndGame = function () {
     introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
@@ -230,11 +228,16 @@ var mogChoice = function() {
 //--------------------Choice 5--------------------------//
 var finalChoice = function() {
   userChoices.push('finalStage');
+  function onMarsLanding (){
+    event.preventDefault();
+    var referencebackground = document.getElementById('sliding');
+    referencebackground.removeAttribute('class');
+    referencebackground.setAttribute('class', 'mars');
+  }
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var victory = function () {
     introText.textContent = 'You have made it to Mars';
-
-
+    onMarsLanding();
   };
   var failure = function () {
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
@@ -271,7 +274,7 @@ function alienAlternateChoice(){
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var alienAlternateContinueGame = function(){
     introText.textContent = `King Roland is a reasonable leader, ${result.textContent}. He is contented in feeling as though you have learned your place as the lesser species. He takes his people and leaves your ship, allowing you to continue on your journey but he took half of your food with him as a price for your insolence.`;
-    setTimeout(function(){mogChoice();}, 5000);
+    setTimeout(function(){mogChoice();}, 7000);
   };
   var alienAlternateEndGame = function(){
     introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
@@ -334,7 +337,7 @@ var goingInAstroid = function(){
     this.removeEventListener('click', handler);
     goingInContinue.parentNode.removeChild(goingInContinue);
     goingInEnd.parentNode.removeChild(goingInEnd);
-  })};
+  });};
 
 
 
