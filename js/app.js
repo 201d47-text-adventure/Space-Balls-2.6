@@ -114,7 +114,7 @@ function setupStory() {
 //--------------------Choice 1--------------------------//
 var astroidChoice = function () {
   var astroidContinueGame = function () {
-    introText.textContent = 'You decided to manuever around the asteroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
+    introText.textContent = 'You decided to maneuver around the asteroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
     continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
