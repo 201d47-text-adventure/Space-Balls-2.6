@@ -1,5 +1,4 @@
 'use strict';
-
 var nameForm = document.getElementById('nameForm');
 var removeUserForm = function () {
     nameForm.parentNode.removeChild(nameForm);
@@ -219,8 +218,8 @@ function alienChoice() {
     userChoices = JSON.parse(localStorage.getItem('userChoices'));
     userChoices.push('alienStage');
     localStorage.setItem('userChoices', JSON.stringify(userChoices));
+    var storageName = 'Captain ' + jParse(localStorage.getItem('User'));
     var alienContinueGame = function () {
-        var storageName = 'Captain ' + jParse(localStorage.getItem('User'));
         introText.textContent = `You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, ${storageName}. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!`;
         // setTimeout(function () { mogChoice(); }, 5000);
         continueButton = document.createElement('BUTTON');
@@ -396,6 +395,7 @@ bottomButton.appendChild(continueButton);
     });
 
 };
+
 // ----------------------Alternative AlienChoice------------------------
 function alienAlternateChoice() {
     //userChoices = JSON.parse(localStorage.getItem('userChoices'));
@@ -415,11 +415,20 @@ bottomButton.appendChild(continueButton);
         mogChoice();
     });
     };
-    var alienAlternateEndGame = function () {
-        introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? You have been destroyed for your ignorance!';
-
-        setTimeout(function () { alert('You are a failure! Civilization is doomed.'); }, 3000);
-    };
+    var alienAlternateEndGame = function(){
+        introText.textContent = 'All Druidia wanted was friendship but you are too foolish for that! You will never be able to beat the great Duidia!';
+        continueButton = document.createElement('BUTTON');
+    continueButton.setAttribute('class', 'continueButton');
+    continueButton.textContent = 'Continue';
+    var bottomButton = document.getElementById('continueButton');
+bottomButton.appendChild(continueButton);
+    continueButton.addEventListener('click', function handler() {
+        this.removeEventListener('click', handler);
+        continueButton.parentNode.removeChild(continueButton);
+        druidiaChoice(); 
+    
+     
+    })};
 
     var alienAlternateEnd = document.createElement('BUTTON');
     alienAlternateEnd.setAttribute('class', 'leftButton');
@@ -465,9 +474,18 @@ bottomButton.appendChild(continueButton);
         crewMemberChoice();
     });
     };
-    var goingInEndGame = function () {
-        introText.textContent = 'You were not able to avoid the Exogorth and he destroys your ship.';
-        setTimeout(function () { alert('GAME OVER'); }, 3000);
+    var goingInEndGame = function(){
+        introText.textContent = 'You were not able to avoid the Exogorth and he eats your ship.';
+        continueButton = document.createElement('BUTTON');
+    continueButton.setAttribute('class', 'continueButton');
+    continueButton.textContent = 'Continue';
+    var bottomButton = document.getElementById('continueButton');
+bottomButton.appendChild(continueButton);
+    continueButton.addEventListener('click', function handler() {
+        this.removeEventListener('click', handler);
+        continueButton.parentNode.removeChild(continueButton);
+        exogorthAstroid();
+    });
     };
 
     var goingInContinue = document.createElement('BUTTON');
@@ -493,7 +511,116 @@ bottomButton.appendChild(continueButton);
     })
 };
 
+var exogorthAstroid = function(){
+    var exogorthContinueGame = function(){
+      introText.textContent = 'You were successfully pooped out of the Exogorth. With your new Exogorth space ship cologne your able to move on to mars. ';
+      continueButton = document.createElement('BUTTON');
+    continueButton.setAttribute('class', 'continueButton');
+    continueButton.textContent = 'Continue';
+    var bottomButton = document.getElementById('continueButton');
+bottomButton.appendChild(continueButton);
+    continueButton.addEventListener('click', function handler() {
+        this.removeEventListener('click', handler);
+        continueButton.parentNode.removeChild(continueButton);
+      crewMemberChoice();
+    });
+    };
+    var exogorthEndGame = function(){
+      introText.textContent = 'You were able to blast the Exogorth\'s stomach and as his guts float throw the empty abyss of space as you try to escape you encounter King Roland who enslaves you for killing his favorite Exogorth and you become his personal maid.';
+      continueButton = document.createElement('BUTTON');
+    continueButton.setAttribute('class', 'continueButton');
+    continueButton.textContent = 'Continue';
+    var bottomButton = document.getElementById('continueButton');
+bottomButton.appendChild(continueButton);
+    continueButton.addEventListener('click', function handler() {
+        this.removeEventListener('click', handler);
+        continueButton.parentNode.removeChild(continueButton);
+       druidiaChoice();
+    });
+    };
+  
+    var exogorthContinue = document.createElement('BUTTON');
+    exogorthContinue.setAttribute('class', 'rightButton');
+    exogorthContinue.textContent = 'Wait for the Exogorth to digest the ship and poop you out.';
+    exogorthContinue.addEventListener('click', exogorthContinueGame);
+  
+    var exogorthEnd = document.createElement('BUTTON');
+    exogorthEnd.setAttribute('class', 'leftButton');
+    exogorthEnd.textContent = 'Blast the Exogorth\'s stomach so you can try to escape';
+    exogorthEnd.addEventListener('click', exogorthEndGame);
+  
+    var textExogorth = document.getElementById('textinsert');
+    textExogorth.textContent = 'You ended up in the belly of the beast good luck getting out. What bad decisions do you want to do now?  ';
+    var choiceBoxes  = document.getElementById('radioChoice');
+    choiceBoxes.appendChild(exogorthContinue);
+    choiceBoxes.appendChild(exogorthEnd);
+  
+    exogorthContinue.addEventListener('click', function handler(){
+      this.removeEventListener('click', handler);
+      exogorthContinue.parentNode.removeChild(exogorthContinue);
+      exogorthEnd.parentNode.removeChild(exogorthEnd);
+    });
+    exogorthEnd.addEventListener('click', function handler() {
+      this.removeEventListener('click', handler);
+      exogorthContinue.parentNode.removeChild(exogorthContinue);
+      exogorthEnd.parentNode.removeChild(exogorthEnd);
+    });
+};
 
+// -------------------------druidia--------------------------------
+
+function druidiaChoice(){
+  userChoices.push('druidiaChoiceStage');
+  localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  var druidiaContinueGame = function(){
+    var storageName = 'Captain ' + jParse(localStorage.getItem('User'));
+    if(!disableCrewEnd){
+      introText.textContent = `You have won the Princess over with your kindness, ${storageName}. To show you her gratitude she teaches you to dance the floss. Then returns you safely to your ship. You are back on track. Well done.`;
+      continueButton = document.createElement('BUTTON');
+      continueButton.setAttribute('class', 'continueButton');
+      continueButton.textContent = 'Continue';
+      var bottomButton = document.getElementById('continueButton');
+  bottomButton.appendChild(continueButton);
+      continueButton.addEventListener('click', function handler() {
+          this.removeEventListener('click', handler);
+          continueButton.parentNode.removeChild(continueButton);
+         mogChoice();
+      });
+      };
+  };
+  var druidiaEngGame = function(){
+    introText.textContent = 'King Roland shows no mercy on you for your treacherous act! You will be tortured and executed and any kin you have will be forever hunted and destroyed.';
+    if (!disableCrewEnd) {
+      disableCrewEnd = true;
+      druidiaEnd.style.backgroundColor = '#616161';
+    }
+
+    setTimeout(function(){ alert('You are a failure! Civilization is doomed.');}, 3000);
+  };
+
+  var druidiaContinue = document.createElement('BUTTON');
+  druidiaContinue.setAttribute('class', 'leftButton');
+  druidiaContinue.innerHTML = 'Assist the Princess to her bed and go for help!';
+  druidiaContinue.addEventListener('click', druidiaContinueGame);
+
+  var druidiaEnd = document.createElement('BUTTON');
+  druidiaEnd.setAttribute('class', 'rightButton');
+  druidiaEnd.innerHTML = 'Throw the Princess overboard! You will never stop fighting for your cause!';
+  druidiaEnd.addEventListener('click', druidiaEngGame);
+
+  var textdruidiaChoice = document.getElementById('textinsert');
+  textdruidiaChoice.textContent = 'You are taken onto the ship of the Druidians. Weeks go by and you are forced to serve the royal family. One afternoon as you are going through your tasks you hear a woman crying. It it the Kings daughter, Princess Vespa. She has been injured trying to teach herself the moves to the newest Druidian dance craze, The Floss. She needs help and you are the only person nearby.';
+  var choiceBoxes = document.getElementById('radioChoice');
+  choiceBoxes.appendChild(druidiaContinue);
+  choiceBoxes.appendChild(druidiaEnd);
+
+  druidiaContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    druidiaContinue.parentNode.removeChild(druidiaContinue);
+    druidiaEnd.parentNode.removeChild(druidiaEnd);
+  });
+
+}
 
 //--------------------Functions Called--------------------------//
 
