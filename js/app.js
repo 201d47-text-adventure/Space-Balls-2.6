@@ -327,6 +327,7 @@ var mogChoice = function () {
     mogContinue.parentNode.removeChild(mogContinue);
     mogEnd.parentNode.removeChild(mogEnd);
   });
+
   mogEnd.addEventListener('click', function handler() {
     gameOver();
     this.removeEventListener('click', handler);
