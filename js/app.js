@@ -92,7 +92,7 @@ function setupStory() {
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -112,7 +112,7 @@ var astroidChoice = function () {
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -127,7 +127,7 @@ bottomButton.appendChild(continueButton);
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -175,7 +175,7 @@ var crewMemberChoice = function () {
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -226,7 +226,7 @@ function alienChoice() {
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -241,7 +241,7 @@ bottomButton.appendChild(continueButton);
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -287,7 +287,7 @@ var mogChoice = function () {
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -343,7 +343,7 @@ var finalChoice = function () {
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -358,7 +358,7 @@ bottomButton.appendChild(continueButton);
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -408,7 +408,7 @@ function alienAlternateChoice() {
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -421,7 +421,7 @@ bottomButton.appendChild(continueButton);
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -467,7 +467,7 @@ var goingInAstroid = function () {
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -480,7 +480,7 @@ bottomButton.appendChild(continueButton);
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -518,7 +518,7 @@ var exogorthAstroid = function(){
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
@@ -531,7 +531,7 @@ bottomButton.appendChild(continueButton);
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
     var bottomButton = document.getElementById('continueButton');
-bottomButton.appendChild(continueButton);
+    bottomButton.appendChild(continueButton);
     continueButton.addEventListener('click', function handler() {
         this.removeEventListener('click', handler);
         continueButton.parentNode.removeChild(continueButton);
