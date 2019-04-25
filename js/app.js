@@ -9,9 +9,9 @@ function getUserName() {
   var result = document.getElementById('result');
 
   if (userName.length > 15) {
-    alert("User name must be less than 15 characters")
+    alert('User name must be less than 15 characters')
   } else {
-    result.textContent = `Capitain ` + userName;
+    result.textContent = 'Capitain ' + userName;
     localStorage.setItem('User', JSON.stringify(userName));
     introductionText();
     event.preventDefault();
@@ -81,7 +81,6 @@ startGame.addEventListener('click', function handler() {
   this.removeEventListener('click', handler);
   insertStartButton.parentNode.removeChild(insertStartButton);
   setupStory();
-
 });
 
 var setupText = document.getElementById('textinsert');
@@ -113,7 +112,6 @@ var astroidChoice = function () {
       continueButton.parentNode.removeChild(continueButton);
       crewMemberChoice();
     });
-
   };
   var astroidEndGame = function () {
     introText.textContent = `You managed to dodge a few asteroids, but you couldn't dodge them all and your ship has lost functionality in one of its engines, disabling your ship's ability to make right hand turns. All lefts from here on out, ${result.textContent} `;
@@ -310,7 +308,6 @@ var mogChoice = function () {
     mogContinue.parentNode.removeChild(mogContinue);
     mogEnd.parentNode.removeChild(mogEnd);
   });
-
 };
 
 //--------------------Choice 5--------------------------//
@@ -437,6 +434,11 @@ function alienAlternateChoice() {
   choiceBoxes.appendChild(alienAlternateEnd);
 
   alienAlternateContinue.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    alienAlternateContinue.parentNode.removeChild(alienAlternateContinue);
+    alienAlternateEnd.parentNode.removeChild(alienAlternateEnd);
+  });
+  alienAlternateEnd.addEventListener('click', function handler() {
     this.removeEventListener('click', handler);
     alienAlternateContinue.parentNode.removeChild(alienAlternateContinue);
     alienAlternateEnd.parentNode.removeChild(alienAlternateEnd);
