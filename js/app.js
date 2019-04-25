@@ -192,8 +192,7 @@ var crewMemberChoice = function () {
     if (!disableCrewEnd) {
       disableCrewEnd = true;
       crewMemberContinue.style.backgroundColor = '#616161';
-    }
-    setTimeout(function () { alert('GAME OVER'); }, 3000);
+    } gameOver();
   };
   var crewMemberContinue = document.createElement('BUTTON');
   crewMemberContinue.setAttribute('class', 'leftButton');
@@ -217,7 +216,6 @@ var crewMemberChoice = function () {
     crewMemberEnd.parentNode.removeChild(crewMemberEnd);
   });
   crewMemberEnd.addEventListener('click', function handler() {
-    crewMemberEndGame();
     this.removeEventListener('click', handler);
     crewMemberContinue.parentNode.removeChild(crewMemberContinue);
     crewMemberEnd.parentNode.removeChild(crewMemberEnd);
@@ -302,8 +300,7 @@ var mogChoice = function () {
   };
   var mogEndGame = function () {
     introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
-
-    setTimeout(function () { alert('GAME OVER'); }, 3000);
+gameOver();
   };
 
   var mogEnd = document.createElement('BUTTON');
@@ -329,7 +326,6 @@ var mogChoice = function () {
   });
 
   mogEnd.addEventListener('click', function handler() {
-    gameOver();
     this.removeEventListener('click', handler);
     mogContinue.parentNode.removeChild(mogContinue);
     mogEnd.parentNode.removeChild(mogEnd);
@@ -478,11 +474,29 @@ var goingInAstroid = function(){
 
   var goingInContinueGame = function(){
     introText.textContent = 'You Scared the Exogorth and got away safely.';
-    setTimeout(function(){crewMemberChoice();}, 5000);
+    continueButton = document.createElement('BUTTON');
+    continueButton.setAttribute('class', 'continueButton');
+    continueButton.textContent = 'Continue';
+    var bottomButton = document.getElementById('continueButton');
+    bottomButton.appendChild(continueButton);
+    continueButton.addEventListener('click', function handler() {
+      this.removeEventListener('click', handler);
+      continueButton.parentNode.removeChild(continueButton);
+      crewMemberChoice();
+    });
   };
   var goingInEndGame = function(){
     introText.textContent = 'You were not able to avoid the Exogorth and he eats your ship.';
-    setTimeout(function(){ exogorthAstroid(); }, 3000);
+    continueButton = document.createElement('BUTTON');
+    continueButton.setAttribute('class', 'continueButton');
+    continueButton.textContent = 'Continue';
+    var bottomButton = document.getElementById('continueButton');
+    bottomButton.appendChild(continueButton);
+    continueButton.addEventListener('click', function handler() {
+      this.removeEventListener('click', handler);
+      continueButton.parentNode.removeChild(continueButton);
+      exogorthAstroid();
+    });
   };
 
   var goingInContinue = document.createElement('BUTTON');
@@ -591,14 +605,14 @@ function druidiaChoice(){
       });
     }
   };
-  var druidiaEngGame = function(){
+  var druidiaEndGame = function(){
     introText.textContent = 'King Roland shows no mercy on you for your treacherous act! You will be tortured and executed and any kin you have will be forever hunted and destroyed.';
     if (!disableCrewEnd) {
       disableCrewEnd = true;
       druidiaEnd.style.backgroundColor = '#616161';
     }
 
-    setTimeout(function(){ alert('You are a failure! Civilization is doomed.');}, 3000);
+    gameOver();
   };
 
   var druidiaContinue = document.createElement('BUTTON');
@@ -623,10 +637,9 @@ function druidiaChoice(){
     druidiaEnd.parentNode.removeChild(druidiaEnd);
   });
   druidiaEnd.addEventListener('click', function handler(){
-    gameOver();
     this.removeEventListener('click', handler);
     druidiaContinue.parentNode.removeChild(druidiaContinue);
-    druidiaEnd.parentNode.removeChild(druidiaEnd);
+    druidiaEnd.parentNode.removeChild(druidiaEndGame);
   });
 
 }
