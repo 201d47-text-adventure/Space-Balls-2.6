@@ -81,7 +81,7 @@ var loadData = function () {
 //--------------------Intro--------------------------//
 var introText = document.getElementById('textinsert');
 function introductionText() {
-  introText.textContent = `${result.textContent} the world is in a dire situation. Over the past few years melting of the polar ice caps has accelerated. Florida and parts of Italy are completely under water. The world has banned together and found it possible to establish ourselves on Mars. You have been elected to carry out the initial journey. Your resources will be limited. The human race is counting on you in these trying times. Consider your choices carfeully to ensure the completion of your mission.`;
+  introText.textContent = `${result.textContent} the world is in a dire situation. Over the past few years melting of the polar ice caps has accelerated. Florida and parts of Italy are completely under water. The world has banned together and found it possible to establish ourselves on Mars. You have been elected to carry out the initial journey. Your resources will be limited. The human race is counting on you in these trying times. Consider your choices carefully to ensure the completion of your mission.`;
   startButton.textContent = 'Start Adventure';
   insertStartButton.append(startButton);
 }
@@ -98,7 +98,7 @@ startGame.addEventListener('click', function handler() {
 
 var setupText = document.getElementById('textinsert');
 function setupStory() {
-  setupText.textContent = `${result.textContent} the world is greatful for your acceptance of this dangerous misson. Time is of the essance and your ship is already prepared. Your mission to Mars awaits with all of its challenges and experiences. Keep in mind your choices will determine the fate of the world. Good luck ${result.textContent}`;
+  setupText.textContent = `${result.textContent} the world is grateful for your acceptance of this dangerous misson. Time is of the essence and your ship is already prepared. Your mission to Mars awaits with all of its challenges and experiences. Keep in mind your choices will determine the fate of the world. Good luck ${result.textContent}`;
   continueButton = document.createElement('BUTTON');
   continueButton.setAttribute('class', 'continueButton');
   continueButton.textContent = 'Continue';
@@ -150,7 +150,7 @@ var astroidChoice = function () {
   astroidChoiceEnd.addEventListener('click', astroidEndGame);
 
   var textChoiceOne = document.getElementById('textinsert');
-  textChoiceOne.textContent = 'You have successfully gotten to orbit. There is an astroid belt in front of you. What do you do?';
+  textChoiceOne.textContent = 'You have successfully launched into orbit. There is an astroid belt in front of you. What do you do?';
   var choiceBoxes = document.getElementById('radioChoice');
   choiceBoxes.appendChild(astroidChoiceContinue);
   choiceBoxes.appendChild(astroidChoiceEnd);
@@ -473,7 +473,7 @@ var goingInAstroid = function(){
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
 
   var goingInContinueGame = function(){
-    introText.textContent = 'You Scared the Exogorth and got away safely.';
+    introText.textContent = 'You scared the Exogorth and got away safely.';
     continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -510,7 +510,7 @@ var goingInAstroid = function(){
   goingInEnd.addEventListener('click', goingInEndGame);
 
   var textGoingIn = document.getElementById('textinsert');
-  textGoingIn.textContent = 'You decided to go through the astroid belt, not a smart choice. There is a Exogorth (The astroid monster from Star Wars) that is attacking the ship. What should you do?';
+  textGoingIn.textContent = 'You decided to go through the asteroid belt, not a smart choice. There is a Exogorth (The asteroid monster from Star Wars) that is attacking the ship. What should you do?';
   var choiceBoxes  = document.getElementById('radioChoice');
   choiceBoxes.appendChild(goingInContinue);
   choiceBoxes.appendChild(goingInEnd);
@@ -543,7 +543,7 @@ var exogorthAstroid = function(){
   };
 
   var exogorthEndGame = function(){
-    introText.textContent = 'You were able to blast the Exogorth\'s stomach and as his guts float throw the empty abyss of space as you try to escape you encounter King Roland who enslaves you for killing his favorite Exogorth and you become his personal maid.';
+    introText.textContent = 'You were able to blast the Exogorth\'s stomach and as his guts float through the empty abyss of space as you try to escape you encounter King Roland who enslaves you for killing his favorite Exogorth and you become his personal maid.';
     continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
