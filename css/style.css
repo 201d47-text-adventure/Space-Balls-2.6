@@ -39,9 +39,11 @@ header {
   }
   .leftButton{
     right:20%;
+    margin-top:20%;
   }
   .rightButton{
     left:15%;
+    margin-top:20%;
   }
   #playbox {
     position: absolute;

@@ -97,9 +97,6 @@ function setupStory() {
     continueButton.parentNode.removeChild(continueButton);
     astroidChoice();
   });
-
-
-
 }
 
 //--------------------Choice 1--------------------------//
@@ -119,7 +116,7 @@ var astroidChoice = function () {
 
   };
   var astroidEndGame = function () {
-    introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
+    introText.textContent = `You managed to dodge a few asteroids, but you couldn't dodge them all and your ship has lost functionality in one of its engines, disabling your ship's ability to make right hand turns. All lefts from here on out, ${result.textContent} `;
     continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -230,7 +227,6 @@ function alienChoice() {
   };
   var alienEndGame = function () {
     introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? We shall see!';
-
     continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -286,8 +282,6 @@ var mogChoice = function () {
       continueButton.parentNode.removeChild(continueButton);
       finalChoice();
     });
-
-
   };
   var mogEndGame = function () {
     introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
@@ -337,7 +331,6 @@ var finalChoice = function () {
     introText.textContent = 'You have made it to Mars';
     background();
     onMarsLanding();
-
   };
   var failure = function () {
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
@@ -353,7 +346,6 @@ var finalChoice = function () {
       wormHole();
     });
   };
-
   var wormHole = function () {
     introText.textContent = 'As Barf steered toward the surface of Mars his attention suddenly snaps to an anomly in the distance. He jerks the ship toward it and accelerates. IT IS A WORM HOLE!?!?!?! You wrestle with him for control but it is too late the gravatational pull sucks the ship in. Everything goes black then.......';
     continueButton = document.createElement('BUTTON');
@@ -395,7 +387,6 @@ var finalChoice = function () {
     noBarf.parentNode.removeChild(noBarf);
     finalEnd.parentNode.removeChild(finalEnd);
   });
-
 };
 
 // ----------------------Alternative AlienChoice------------------------
@@ -427,8 +418,6 @@ function alienAlternateChoice() {
       this.removeEventListener('click', handler);
       continueButton.parentNode.removeChild(continueButton);
       druidiaChoice();
-
-
     });};
 
   var alienAlternateEnd = document.createElement('BUTTON');
@@ -452,9 +441,7 @@ function alienAlternateChoice() {
     alienAlternateContinue.parentNode.removeChild(alienAlternateContinue);
     alienAlternateEnd.parentNode.removeChild(alienAlternateEnd);
   });
-
 }
-
 
 var goingInAstroid = function(){
 
@@ -512,6 +499,7 @@ var exogorthAstroid = function(){
       crewMemberChoice();
     });
   };
+  
   var exogorthEndGame = function(){
     introText.textContent = 'You were able to blast the Exogorth\'s stomach and as his guts float throw the empty abyss of space as you try to escape you encounter King Roland who enslaves you for killing his favorite Exogorth and you become his personal maid.';
     continueButton = document.createElement('BUTTON');
