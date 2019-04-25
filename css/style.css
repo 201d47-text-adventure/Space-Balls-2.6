@@ -21,6 +21,9 @@
     font-size: 25px;
     color: whitesmoke;
   }
+
+ 
+
   button {
     font-family: 'Cute Font', cursive;
     font-size: 25px;
@@ -167,4 +170,10 @@ a:visited {
 }
 .devDescription{
   padding: 8px;
+}
+
+#continueButton {
+  position: relative;
+    bottom: 30%;
+    text-align: center;
 }
