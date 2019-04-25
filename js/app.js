@@ -611,7 +611,6 @@ var druidiaChoice = function(){
       disableCrewEnd = true;
       druidiaEnd.style.backgroundColor = '#616161';
     }
-
     gameOver();
   };
 
@@ -623,7 +622,7 @@ var druidiaChoice = function(){
   var druidiaEnd = document.createElement('BUTTON');
   druidiaEnd.setAttribute('class', 'rightButton');
   druidiaEnd.innerHTML = 'Throw the Princess overboard! You will never stop fighting for your cause!';
-  druidiaEnd.addEventListener('click', druidiaEngGame);
+  druidiaEnd.addEventListener('click', druidiaEndGame);
 
   var textdruidiaChoice = document.getElementById('textinsert');
   textdruidiaChoice.textContent = 'You are taken onto the ship of the Druidians. Weeks go by and you are forced to serve the royal family. One afternoon as you are going through your tasks you hear a woman crying. It it the Kings daughter, Princess Vespa. She has been injured trying to teach herself the moves to the newest Druidian dance craze, The Floss. She needs help and you are the only person nearby.';
@@ -639,7 +638,7 @@ var druidiaChoice = function(){
   druidiaEnd.addEventListener('click', function handler(){
     this.removeEventListener('click', handler);
     druidiaContinue.parentNode.removeChild(druidiaContinue);
-    druidiaEnd.parentNode.removeChild(druidiaEndGame);
+    druidiaEnd.parentNode.removeChild(druidiaEnd);
   });
 
 }

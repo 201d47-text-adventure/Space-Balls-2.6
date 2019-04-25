@@ -55,7 +55,6 @@ header {
     border: 2px solid black;
     border-radius: 10px;
     background-color: hsla(208, 100%, 30%, 0.5);
-    /* background: url(../img/hud.jpg); */
   }
   #radioChoice {
     position: relative;
@@ -175,11 +174,11 @@ a:visited {
   padding: 8px;
 }
 
-.gameMusic {
-  background-color: black;
-  width: 200px;
-  display: flex;
-  overflow: visible;
+audio{
+  display: block;
+  margin-left: 80%;
+  width: 20%;
+  margin-top: 25%;
 }
 
 #continueButton {
