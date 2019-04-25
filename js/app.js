@@ -3,20 +3,33 @@ var nameForm = document.getElementById('nameForm');
 var removeUserForm = function () {
   nameForm.parentNode.removeChild(nameForm);
 };
+
+var gameOver = function () {
+  var insertGameOverButton = document.getElementById('gameOverButton');
+  var gameOverButton = document.createElement('BUTTON');
+  gameOverButton.setAttribute('class', 'gameOverButton');
+  gameOverButton.textContent = 'Continue?';
+  insertGameOverButton.appendChild(gameOverButton);
+  gameOverButton.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    location.href='gameOver.html';
+    gameOverButton.parentNode.removeChild(gameOverButton);
+
+  });
+};
 //--------------------UserName--------------------------//
 function getUserName() {
   var userName = document.getElementById('userName').value;
   var result = document.getElementById('result');
 
   if (userName.length > 15) {
-    alert("User name must be less than 15 characters")
+    alert('User name must be less than 15 characters');
   } else {
-    result.textContent = `Capitain ` + userName;
+    result.textContent = 'Capitain ' + userName;
     localStorage.setItem('User', JSON.stringify(userName));
     introductionText();
     event.preventDefault();
     removeUserForm();
-  
   }
 }
 var submitForm = document.getElementById('nameForm');
@@ -81,7 +94,6 @@ startGame.addEventListener('click', function handler() {
   this.removeEventListener('click', handler);
   insertStartButton.parentNode.removeChild(insertStartButton);
   setupStory();
-
 });
 
 var setupText = document.getElementById('textinsert');
@@ -113,7 +125,6 @@ var astroidChoice = function () {
       continueButton.parentNode.removeChild(continueButton);
       crewMemberChoice();
     });
-
   };
   var astroidEndGame = function () {
     introText.textContent = `You managed to dodge a few asteroids, but you couldn't dodge them all and your ship has lost functionality in one of its engines, disabling your ship's ability to make right hand turns. All lefts from here on out, ${result.textContent} `;
@@ -201,6 +212,12 @@ var crewMemberChoice = function () {
   choiceBoxes.appendChild(crewMemberEnd);
 
   crewMemberContinue.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    crewMemberContinue.parentNode.removeChild(crewMemberContinue);
+    crewMemberEnd.parentNode.removeChild(crewMemberEnd);
+  });
+  crewMemberEnd.addEventListener('click', function handler() {
+    crewMemberEndGame();
     this.removeEventListener('click', handler);
     crewMemberContinue.parentNode.removeChild(crewMemberContinue);
     crewMemberEnd.parentNode.removeChild(crewMemberEnd);
@@ -311,6 +328,12 @@ var mogChoice = function () {
     mogEnd.parentNode.removeChild(mogEnd);
   });
 
+  mogEnd.addEventListener('click', function handler() {
+    gameOver();
+    this.removeEventListener('click', handler);
+    mogContinue.parentNode.removeChild(mogContinue);
+    mogEnd.parentNode.removeChild(mogEnd);
+  });
 };
 
 //--------------------Choice 5--------------------------//
@@ -441,6 +464,11 @@ function alienAlternateChoice() {
     alienAlternateContinue.parentNode.removeChild(alienAlternateContinue);
     alienAlternateEnd.parentNode.removeChild(alienAlternateEnd);
   });
+  alienAlternateEnd.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    alienAlternateContinue.parentNode.removeChild(alienAlternateContinue);
+    alienAlternateEnd.parentNode.removeChild(alienAlternateEnd);
+  });
 }
 
 var goingInAstroid = function(){
@@ -499,7 +527,7 @@ var exogorthAstroid = function(){
       crewMemberChoice();
     });
   };
-  
+
   var exogorthEndGame = function(){
     introText.textContent = 'You were able to blast the Exogorth\'s stomach and as his guts float throw the empty abyss of space as you try to escape you encounter King Roland who enslaves you for killing his favorite Exogorth and you become his personal maid.';
     continueButton = document.createElement('BUTTON');
@@ -590,6 +618,12 @@ function druidiaChoice(){
   choiceBoxes.appendChild(druidiaEnd);
 
   druidiaContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    druidiaContinue.parentNode.removeChild(druidiaContinue);
+    druidiaEnd.parentNode.removeChild(druidiaEnd);
+  });
+  druidiaEnd.addEventListener('click', function handler(){
+    gameOver();
     this.removeEventListener('click', handler);
     druidiaContinue.parentNode.removeChild(druidiaContinue);
     druidiaEnd.parentNode.removeChild(druidiaEnd);
