@@ -323,9 +323,20 @@ var mogChoice = function () {
 var finalChoice = function () {
   userChoices.push('finalStage');
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
+  function background (){
+    event.preventDefault();
+    var referenceimage = document.getElementById('body');
+    referenceimage.setAttribute('class', 'mars');
+  }
+  function onMarsLanding (){
+    event.preventDefault();
+    var referencebackground = document.getElementById('sliding');
+    referencebackground.removeAttribute('class');
+  }
   var victory = function () {
     introText.textContent = 'You have made it to Mars';
-    
+    background();
+    onMarsLanding();
 
   };
   var failure = function () {
