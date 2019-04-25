@@ -9,15 +9,15 @@ function getUserName() {
   var result = document.getElementById('result');
 
   if (userName.length > 15) {
-    result.textContent = 'Username must contain less than 15 characters';
+    alert("User name must be less than 15 characters")
   } else {
-    result.textContent = 'Captian ' + userName;
-    alert('Welcome, Captain ' + userName);
+    result.textContent = `Capitain ` + userName;
     localStorage.setItem('User', JSON.stringify(userName));
+    introductionText();
+    event.preventDefault();
+    removeUserForm();
+  
   }
-  introductionText();
-  event.preventDefault();
-  removeUserForm();
 }
 var submitForm = document.getElementById('nameForm');
 submitForm.addEventListener('submit', getUserName, false);
