@@ -39,6 +39,7 @@ header {
   }
   .leftButton{
     right:20%;
+    margin-top:20%;
   }
   .rightButton{
     left:15%;
@@ -63,12 +64,9 @@ header {
   }
   
   #textinsert {
-    max-height: 250px;
-    min-height: 250px;
     position: relative;
-    overflow: scroll;
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
   }
 
   .container {
