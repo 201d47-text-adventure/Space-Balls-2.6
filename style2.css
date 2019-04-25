@@ -17,3 +17,44 @@
       transform: translate3d(-3500px, 0, 0);
     }
   }
+#gameOverScreen {
+    font-family: fantasy;
+    font-size: 100px;
+    color: red;
+    text-align: center;
+  }
+
+h1 {
+  position: absolute;
+  text-align: center;
+  bottom: 65%;
+  left: 35%;
+}
+
+header {
+  text-align: center;
+  background-color:black;
+  color:yellow;
+  font-size: 50px;
+  height: 200px;
+}
+
+#home{
+  position: absolute;
+  width:20%;
+  top:5%;
+  left:68%;
+  font-family: 'Amatic SC', cursive;
+  color:yellow;
+  font-size: 30px;
+}
+
+#aboutMe{
+  position: absolute;
+  width:20%;
+  top:10%;
+  left:75%;
+  font-family: 'Amatic SC', cursive;
+  color:yellow;
+  font-size: 30px;
+}
