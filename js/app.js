@@ -315,6 +315,12 @@ function alienAlternateChoice(){
     alienAlternateContinue.parentNode.removeChild(alienAlternateContinue);
     alienAlternateEnd.parentNode.removeChild(alienAlternateEnd);
   });
+  alienAlternateEnd.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    alienAlternateContinue.parentNode.removeChild(alienAlternateContinue);
+    alienAlternateEnd.parentNode.removeChild(alienAlternateEnd);
+  });
+
 
 }
 

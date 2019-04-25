@@ -1,9 +1,11 @@
-#game {
+header {
   text-align: center;
   background-color:black;
   color:yellow;
   font-size: 50px;
+  height: 200px;
   }
+  
 #nameLable {
   text-align: center;
   background-color:black;
@@ -142,21 +144,17 @@
 #home{
     position: absolute;
     width:20%;
-    top:15%;
+    top:5%;
     left:80%;
     font-family: 'Amatic SC', cursive;
-    color: white;
-    font-size: 25px;
+    color:yellow;
+    font-size: 30px;
   }
 a:link {
-  color: white;
-  background-color:rgba(0, 0, 204, .5);
-  text-decoration: none;
+  color: yellow;
 }
 a:visited {
-    color:black;
-    background-color: rgba(255,255,255,0.5);
-    text-decoration: none;
+    color:yellow;
 }
 .devPic{
      width:80%;
