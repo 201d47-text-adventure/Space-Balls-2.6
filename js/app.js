@@ -87,7 +87,6 @@ startGame.addEventListener('click', function handler() {
 var setupText = document.getElementById('textinsert');
 function setupStory() {
     setupText.textContent = `${result.textContent} the world is greatful for your acceptance of this dangerous misson. Time is of the essance and your ship is already prepared. Your mission to Mars awaits with all of its challenges and experiences. Keep in mind your choices will determine the fate of the world. Good luck ${result.textContent}`;
-    // setTimeout(function () { astroidChoice(); }, 6000);
     continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -107,7 +106,6 @@ function setupStory() {
 var astroidChoice = function () {
     var astroidContinueGame = function () {
         introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
-        // setTimeout(function () { crewMemberChoice(); }, 5000);
         continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -122,7 +120,6 @@ var astroidChoice = function () {
     };
     var astroidEndGame = function () {
         introText.textContent = 'You managed to dodge a few asteroids, but you couldn\'t dodge them all as your ship\'s damage became too much as it lost its functuanlity and you began to drift into space.';
-        // setTimeout(function () { goingInAstroid(); }, 3000);
         continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -170,7 +167,6 @@ var crewMemberChoice = function () {
     var crewMemberContinueGame = function () {
         if (!disableCrewEnd) {
             introText.textContent = 'You decide to throw him into space....... good job! That Space Moses got what he deserved. But it does make you wonder if he was onto something.......';
-            // setTimeout(function () { alienChoice(); }, 5000);
             continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -221,7 +217,6 @@ function alienChoice() {
     var storageName = 'Captain ' + jParse(localStorage.getItem('User'));
     var alienContinueGame = function () {
         introText.textContent = `You have taken a great risk by welcoming aliens on board! Your arrogance has paid off, this time, ${storageName}. The aliens from Planet Druidia have gifted you with resources and have granted you permission to continue in peace. Well done!`;
-        // setTimeout(function () { mogChoice(); }, 5000);
         continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -236,7 +231,6 @@ function alienChoice() {
     var alienEndGame = function () {
         introText.textContent = 'You think you can compete against the great warriors of Planet Druidia? We shall see!';
 
-        // setTimeout(function () { alienAlternateChoice(); }, 5000);
         continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -282,7 +276,6 @@ var mogChoice = function () {
     localStorage.setItem('userChoices', JSON.stringify(userChoices));
     var mogContinueGame = function () {
         introText.textContent = 'Mission accomplished! We have made some loyal friends!';
-        // setTimeout(function () { finalChoice(); }, 5000);
         continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -338,7 +331,6 @@ var finalChoice = function () {
     var failure = function () {
         introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
 
-        // setTimeout(function () { wormHole(); }, 3000);
         continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -353,7 +345,6 @@ var finalChoice = function () {
 
     var wormHole = function () {
         introText.textContent = 'As Barf steered toward the surface of Mars his attention suddenly snaps to an anomly in the distance. He jerks the ship toward it and accelerates. IT IS A WORM HOLE!?!?!?! You wrestle with him for control but it is too late the gravatational pull sucks the ship in. Everything goes black then.......';
-        // setTimeout(function () { astroidChoice(); }, 10000)
         continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -403,7 +394,6 @@ function alienAlternateChoice() {
     localStorage.setItem('userChoices', JSON.stringify(userChoices));
     var alienAlternateContinueGame = function () {
         introText.textContent = `King Roland is a reasonable leader, ${result.textContent}. He is contented in feeling as though you have learned your place as the lesser species. He takes his people and leaves your ship, allowing you to continue on your journey but he took half of your food with him as a price for your insolence.`;
-        // setTimeout(function () { mogChoice(); }, 5000);
         continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -462,7 +452,6 @@ var goingInAstroid = function () {
 
     var goingInContinueGame = function () {
         introText.textContent = 'You Scared the Exogorth and got away safely.';
-        // setTimeout(function () { crewMemberChoice(); }, 5000);
         continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
