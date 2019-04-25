@@ -409,7 +409,7 @@ var finalChoice = function () {
 };
 
 // ----------------------Alternative AlienChoice------------------------
-var alienAlternateChoice =function() {
+var alienAlternateChoice = function() {
   //userChoices = JSON.parse(localStorage.getItem('userChoices'));
   userChoices.push('alienAlternateStage');
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
