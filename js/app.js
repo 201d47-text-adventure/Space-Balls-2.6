@@ -3,20 +3,33 @@ var nameForm = document.getElementById('nameForm');
 var removeUserForm = function () {
   nameForm.parentNode.removeChild(nameForm);
 };
+
+var gameOver = function () {
+  var insertGameOverButton = document.getElementById('gameOverButton');
+  var gameOverButton = document.createElement('BUTTON');
+  gameOverButton.setAttribute('class', 'gameOverButton');
+  gameOverButton.textContent = 'Continue?';
+  insertGameOverButton.appendChild(gameOverButton);
+  gameOverButton.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    location.href='gameOver.html';
+    gameOverButton.parentNode.removeChild(gameOverButton);
+
+  });
+};
 //--------------------UserName--------------------------//
 function getUserName() {
   var userName = document.getElementById('userName').value;
   var result = document.getElementById('result');
 
   if (userName.length > 15) {
-    alert('User name must be less than 15 characters')
+    alert('User name must be less than 15 characters');
   } else {
     result.textContent = 'Capitain ' + userName;
     localStorage.setItem('User', JSON.stringify(userName));
     introductionText();
     event.preventDefault();
     removeUserForm();
-  
   }
 }
 var submitForm = document.getElementById('nameForm');
@@ -203,6 +216,12 @@ var crewMemberChoice = function () {
     crewMemberContinue.parentNode.removeChild(crewMemberContinue);
     crewMemberEnd.parentNode.removeChild(crewMemberEnd);
   });
+  crewMemberEnd.addEventListener('click', function handler() {
+    crewMemberEndGame();
+    this.removeEventListener('click', handler);
+    crewMemberContinue.parentNode.removeChild(crewMemberContinue);
+    crewMemberEnd.parentNode.removeChild(crewMemberEnd);
+  });
 };
 // //--------------------Choice 3--------------------------//
 function alienChoice() {
@@ -304,6 +323,12 @@ var mogChoice = function () {
   choiceBoxes.appendChild(mogEnd);
 
   mogContinue.addEventListener('click', function handler() {
+    this.removeEventListener('click', handler);
+    mogContinue.parentNode.removeChild(mogContinue);
+    mogEnd.parentNode.removeChild(mogEnd);
+  });
+  mogContinue.addEventListener('click', function handler() {
+    gameOver();
     this.removeEventListener('click', handler);
     mogContinue.parentNode.removeChild(mogContinue);
     mogEnd.parentNode.removeChild(mogEnd);
@@ -501,7 +526,7 @@ var exogorthAstroid = function(){
       crewMemberChoice();
     });
   };
-  
+
   var exogorthEndGame = function(){
     introText.textContent = 'You were able to blast the Exogorth\'s stomach and as his guts float throw the empty abyss of space as you try to escape you encounter King Roland who enslaves you for killing his favorite Exogorth and you become his personal maid.';
     continueButton = document.createElement('BUTTON');
@@ -592,6 +617,12 @@ function druidiaChoice(){
   choiceBoxes.appendChild(druidiaEnd);
 
   druidiaContinue.addEventListener('click', function handler(){
+    this.removeEventListener('click', handler);
+    druidiaContinue.parentNode.removeChild(druidiaContinue);
+    druidiaEnd.parentNode.removeChild(druidiaEnd);
+  });
+  druidiaEnd.addEventListener('click', function handler(){
+    gameOver();
     this.removeEventListener('click', handler);
     druidiaContinue.parentNode.removeChild(druidiaContinue);
     druidiaEnd.parentNode.removeChild(druidiaEnd);
