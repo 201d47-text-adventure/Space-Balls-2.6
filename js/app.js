@@ -114,7 +114,7 @@ function setupStory() {
 //--------------------Choice 1--------------------------//
 var astroidChoice = function () {
   var astroidContinueGame = function () {
-    introText.textContent = 'You decided to manuever around the astroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
+    introText.textContent = 'You decided to manuever around the asteroid field. This took alot more time than you imagined, but you are safe from it\'s onslaught and continued on in your journey.';
     continueButton = document.createElement('BUTTON');
     continueButton.setAttribute('class', 'continueButton');
     continueButton.textContent = 'Continue';
@@ -141,12 +141,12 @@ var astroidChoice = function () {
   };
   var astroidChoiceContinue = document.createElement('BUTTON');
   astroidChoiceContinue.setAttribute('class', 'leftButton');
-  astroidChoiceContinue.textContent = 'Go around astroid belt';
+  astroidChoiceContinue.textContent = 'Go around asteroid belt';
   astroidChoiceContinue.addEventListener('click', astroidContinueGame);
 
   var astroidChoiceEnd = document.createElement('BUTTON');
   astroidChoiceEnd.setAttribute('class', 'rightButton');
-  astroidChoiceEnd.textContent = 'Go through astroid belt';
+  astroidChoiceEnd.textContent = 'Go through asteroid belt';
   astroidChoiceEnd.addEventListener('click', astroidEndGame);
 
   var textChoiceOne = document.getElementById('textinsert');
@@ -265,7 +265,7 @@ var alienChoice = function() {
   alienContinue.addEventListener('click', alienContinueGame);
 
   var textAlienChoice = document.getElementById('textinsert');
-  textAlienChoice.textContent = 'You continue on your journey, weary of what other tribulations lie ahead. Just as you and your crew begin to grow comfortable, you hear a voice coming through your transmitter. \'Hello\', it says, \'This is King Roland of the great planet Druidia. Let us on board and our species can exchange knowledge!\' What do you do?';
+  textAlienChoice.textContent = 'You continue on your journey, weary of what other tribulations lie ahead. Just as you and your crew begins to feel comfortable, you hear a voice coming through your transmitter. \'Hello\', it says, \'This is King Roland of the great planet Druidia. Let us onboard and our species can exchange knowledge!\' What do you do?';
   var choiceBoxes = document.getElementById('radioChoice');
   choiceBoxes.appendChild(alienContinue);
   choiceBoxes.appendChild(alienEnd);
@@ -350,6 +350,7 @@ var finalChoice = function () {
     introText.textContent = 'You have made it to Mars';
     background();
     onMarsLanding();
+    gameOver();
   };
   var failure = function () {
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
@@ -465,7 +466,7 @@ var alienAlternateChoice = function() {
     alienAlternateContinue.parentNode.removeChild(alienAlternateContinue);
     alienAlternateEnd.parentNode.removeChild(alienAlternateEnd);
   });
-}
+};
 
 var goingInAstroid = function(){
 
@@ -641,7 +642,7 @@ var druidiaChoice = function(){
     druidiaEnd.parentNode.removeChild(druidiaEnd);
   });
 
-}
+};
 
 //--------------------Functions Called--------------------------//
 
