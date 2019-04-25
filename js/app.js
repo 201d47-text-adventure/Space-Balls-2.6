@@ -350,6 +350,7 @@ var finalChoice = function () {
     introText.textContent = 'You have made it to Mars';
     background();
     onMarsLanding();
+    gameOver();
   };
   var failure = function () {
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
