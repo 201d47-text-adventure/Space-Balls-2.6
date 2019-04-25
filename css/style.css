@@ -29,9 +29,9 @@ header {
     font-size: 25px;
     background-color: hsla(46, 74%, 52%, 0.5);
     margin-top: 8%;
+    margin-left:5%;
     margin-right: 10px;
     position: absolute;
-    margin-left:25%;
     max-width: 200px;
   }
   button:hover {
@@ -63,10 +63,7 @@ header {
   #textinsert {
     max-height: 250px;
     min-height: 250px;
-    /* max-width: 800px;
-    min-width: 800px; */
     position: relative;
-    /* left: 25%; */
     overflow: scroll;
     text-align: center;
     font-size: 40px;
@@ -178,15 +175,9 @@ a:visited {
   padding: 8px;
 }
 
-.gameMusic {
-  background-color: black;
-  width: 200px;
-  display: flex;
-  overflow: visible;
+audio{
+  display: block;
+  margin-left: 80%;
+  width: 20%;
 }
 
-#continueButton {
-  position: relative;
-    bottom: 30%;
-    text-align: center;
-}
