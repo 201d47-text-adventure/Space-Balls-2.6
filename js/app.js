@@ -192,8 +192,10 @@ var mogChoice = function() {
   userChoices.unshift('fourthStage');
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var mogContinueGame = function () {
-    introText.textContent = 'Mission accomplished! We have made some loyal friends!';
-    setTimeout(function () { finalChoice(); }, 5000);
+    if(!disableCrewEnd){
+      introText.textContent = 'Mission accomplished! We have made some loyal friends!';
+      setTimeout(function () { finalChoice(); }, 5000);
+    }
   };
   var mogEndGame = function () {
     introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
@@ -222,7 +224,6 @@ var mogChoice = function() {
     mogContinue.parentNode.removeChild(mogContinue);
     mogEnd.parentNode.removeChild(mogEnd);
   });
-
 };
 
 //--------------------Choice 5--------------------------//
@@ -241,7 +242,7 @@ var finalChoice = function() {
   var failure = function () {
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
 
-    setTimeout(function () { alert('GAME OVER'); }, 3050);
+    setTimeout(function () { alert('GAME OVER'); }, 3000);
   };
 
   var finalEnd = document.createElement('BUTTON');
@@ -348,11 +349,11 @@ var exogorthAstroid = function(){
   var exogorthContinueGame = function(){
     introText.textContent = 'You were successfully pooped out of the Exogorth. With your new Exogorth space ship cologne your able to move on to mars. ';
     setTimeout(function(){crewMemberChoice();}, 8000);
-  }
+  };
   var exogorthEndGame = function(){
     introText.textContent = 'You were able to blast the Exogorth\'s stomach and as his guts float throw the empty abyss of space as you try to escape you encounter King Roland who enslaves you for killing his favorite Exogorth and you become his personal maid.';
     setTimeout(function(){ druidiaChoice(); }, 9000);
-  }
+  };
 
   var exogorthContinue = document.createElement('BUTTON');
   exogorthContinue.setAttribute('class', 'rightButton');
