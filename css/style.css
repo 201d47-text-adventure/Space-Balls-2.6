@@ -28,7 +28,6 @@
     background-color: hsla(46, 74%, 52%, 0.5);
     margin-top: 8%;
     margin-right: 10px;
-    position: absolute;
     margin-left:25%;
     max-width: 200px;
   }
@@ -59,7 +58,6 @@
   }
   
   #textinsert {
-    border: 1px solid black;
     max-height: 250px;
     min-height: 250px;
     max-width: 700px;
@@ -68,6 +66,7 @@
     left: 25%;
     overflow: hidden;
     text-align: center;
+    font-size: 50px;
   }
 
   .container {
