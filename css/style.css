@@ -182,3 +182,18 @@ a:visited {
   overflow: visible;
 }
 
+#continueButton {
+  position: relative;
+    bottom: 30%;
+    text-align: center;
+}
+
+#gameOverScreen {
+  font-family: fantasy;
+}
+
+.gameOverButton {
+  position: relative;
+    bottom: 30%;
+    text-align: center;
+}
