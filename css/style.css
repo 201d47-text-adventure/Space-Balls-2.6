@@ -29,19 +29,21 @@ header {
     font-size: 25px;
     background-color: hsla(46, 74%, 52%, 0.5);
     margin-top: 8%;
+    margin-left:5%;
     margin-right: 10px;
     position: absolute;
-    margin-left:25%;
     max-width: 200px;
   }
   button:hover {
     background-color: hsla(86, 74%, 52%, 0.5);
   }
   .leftButton{
-    right:60%;
+    right:20%;
+    margin-top:20%;
   }
   .rightButton{
     left:15%;
+    margin-top: 20%;
   }
   #playbox {
     position: absolute;
@@ -53,6 +55,7 @@ header {
     border: 2px solid black;
     border-radius: 10px;
     background-color: hsla(208, 100%, 30%, 0.5);
+    /* background: url(../img/hud.jpg); */
   }
   #radioChoice {
     position: relative;
@@ -61,15 +64,9 @@ header {
   }
   
   #textinsert {
-    max-height: 250px;
-    min-height: 250px;
-    /* max-width: 800px;
-    min-width: 800px; */
     position: relative;
-    /* left: 25%; */
-    overflow: scroll;
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
   }
 
   .container {
@@ -91,7 +88,7 @@ header {
       transform: translate3d(-3500px, 0, 0);
     }
   }
-  #body{
+  .mars{
     font-family: 'Cute Font', cursive;
     font-size: 25px;
     color: whitesmoke;
