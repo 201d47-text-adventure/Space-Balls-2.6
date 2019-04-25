@@ -25,7 +25,7 @@ function getUserName() {
   if (userName.length > 15) {
     alert('User name must be less than 15 characters');
   } else {
-    result.textContent = 'Capitain ' + userName;
+    result.textContent = 'Captain ' + userName;
     localStorage.setItem('User', JSON.stringify(userName));
     introductionText();
     event.preventDefault();
@@ -81,7 +81,7 @@ var loadData = function () {
 //--------------------Intro--------------------------//
 var introText = document.getElementById('textinsert');
 function introductionText() {
-  introText.textContent = `${result.textContent} the world is in a dire situation. Over the past few years melting of the polar ice caps has accelerated. Florida and parts of Italy are completely under water. The world has banned together and found that is possible to establish ourselves on Mars. You have been elected to carry out the initial journey. Your resources will be limited for this journey. How you manage these resources will utlilmatly determine your success. The human race is counting on you in these trying times. Consider your choices carfeully to ensure the completion of your mission.`;
+  introText.textContent = `${result.textContent} the world is in a dire situation. Over the past few years melting of the polar ice caps has accelerated. Florida and parts of Italy are completely under water. The world has banned together and found it possible to establish ourselves on Mars. You have been elected to carry out the initial journey. Your resources will be limited. The human race is counting on you in these trying times. Consider your choices carfeully to ensure the completion of your mission.`;
   startButton.textContent = 'Start Adventure';
   insertStartButton.append(startButton);
 }
@@ -222,7 +222,7 @@ var crewMemberChoice = function () {
   });
 };
 // //--------------------Choice 3--------------------------//
-function alienChoice() {
+var alienChoice = function() {
   userChoices = JSON.parse(localStorage.getItem('userChoices'));
   userChoices.push('alienStage');
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
@@ -300,7 +300,7 @@ var mogChoice = function () {
   };
   var mogEndGame = function () {
     introText.textContent = 'Oh no! We miscalculated! System f...tzz...tzz......';
-gameOver();
+    gameOver();
   };
 
   var mogEnd = document.createElement('BUTTON');
@@ -409,7 +409,7 @@ var finalChoice = function () {
 };
 
 // ----------------------Alternative AlienChoice------------------------
-function alienAlternateChoice() {
+var alienAlternateChoice = function() {
   //userChoices = JSON.parse(localStorage.getItem('userChoices'));
   userChoices.push('alienAlternateStage');
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
@@ -510,7 +510,7 @@ var goingInAstroid = function(){
   goingInEnd.addEventListener('click', goingInEndGame);
 
   var textGoingIn = document.getElementById('textinsert');
-  textGoingIn.textContent = 'You decided to go through the astroid belt, not a smart choice there there is a Exogorth (The astroid monster from Star Wars) that is attacking the ship. What should you do?';
+  textGoingIn.textContent = 'You decided to go through the astroid belt, not a smart choice. There is a Exogorth (The astroid monster from Star Wars) that is attacking the ship. What should you do?';
   var choiceBoxes  = document.getElementById('radioChoice');
   choiceBoxes.appendChild(goingInContinue);
   choiceBoxes.appendChild(goingInEnd);
@@ -586,7 +586,7 @@ var exogorthAstroid = function(){
 
 // -------------------------druidia--------------------------------
 
-function druidiaChoice(){
+var druidiaChoice = function(){
   userChoices.push('druidiaChoiceStage');
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
   var druidiaContinueGame = function(){
