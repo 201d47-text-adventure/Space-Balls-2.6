@@ -55,7 +55,6 @@ header {
     border: 2px solid black;
     border-radius: 10px;
     background-color: hsla(208, 100%, 30%, 0.5);
-    /* background: url(../img/hud.jpg); */
   }
   #radioChoice {
     position: relative;
@@ -101,13 +100,14 @@ header {
       position: absolute;
       top: 25%;
       width: 300px;
-      height: 400px;
+      height: 450px;
       background-color:rgba(0, 0, 204, .5);
       font-family: 'Amatic SC', cursive;
       color: white;
       text-align: right;
       font-size: 14px;
       transition: transform .2s;
+      margin: 5px;
   }
   .devs:hover {
     transform: scale(1.5); 
@@ -161,6 +161,9 @@ a:visited {
   transform: rotate(90deg);
   margin: 10%;
 }
+#Jonathan img{
+  width:60%;
+  }
 
 .devDescription {
   position: absolute;
@@ -175,16 +178,16 @@ a:visited {
   padding: 8px;
 }
 
-.gameMusic {
-  background-color: black;
-  width: 200px;
-  display: flex;
-  overflow: visible;
+audio{
+  display: block;
+  margin-left: 80%;
+  width: 20%;
+  margin-top: 25%;
 }
 
 #continueButton {
   position: relative;
-    bottom: 30%;
+    bottom: 15%;
     text-align: center;
 }
 
@@ -194,6 +197,6 @@ a:visited {
 
 .gameOverButton {
   position: relative;
-    bottom: 30%;
-    text-align: center;
+  bottom: 30%;
+  text-align: center;
 }

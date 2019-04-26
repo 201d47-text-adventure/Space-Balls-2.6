@@ -1,9 +1,11 @@
 'use strict';
 var nameForm = document.getElementById('nameForm');
+
+
 var removeUserForm = function () {
     nameForm.parentNode.removeChild(nameForm);
 };
-//---------------------GameOver--------------------------------//
+//---------------------GameOverFunction--------------------------------//
 var gameOver = function () {
     var insertGameOverButton = document.getElementById('gameOverButton');
     var gameOverButton = document.createElement('BUTTON');
@@ -11,32 +13,61 @@ var gameOver = function () {
     gameOverButton.textContent = 'Continue?';
     insertGameOverButton.appendChild(gameOverButton);
     gameOverButton.addEventListener('click', function handler() {
-        this.removeEventListener('click', handler);
         location.href = 'gameOver.html';
-        gameOverButton.parentNode.removeChild(gameOverButton);
+        var showResults = document.getElementById('resultsButton');
+        showResults.addEventListener('click', gameOverDisplay);
+        this.removeEventListener('click', handler);
 
     });
-    var storageName = 'Captain ' + jParse(localStorage.getItem('User'));
-    var gameOverUser = document.getElementById('gameOverUser');
-    gameOverUser.textContent = storageName;
+}
 
-};
+    function gameOverDisplay(){
+        var storageName = 'Captain ' + JSON.parse(localStorage.getItem('User'));
+        var userChoices = JSON.parse(localStorage.getItem('userChoices', userChoices));
+    
+        var conclusions = {
+            "astroidMoveThrough": "You faced an onslaught of asteroids and survived by choosing to go through them", 
+            "astroidMoveAround": "You faced an onslaught of asteroids and survived by choosing to go around them",
+            "crewThrowInSpace": "When faced with a sick crewmember you were forced to make a difficult choice. The utilitarian that you are, you decide to throw the sick crew member off of the ship to spare the rest of the crew the chance of illness.",
+            "crewEatingEachOther": "When faced with a sick crewmember you were forced to make a difficult choice. The utilitarian that you are, you opted to use the imminent death of one to increase your resources and feed the pack! Unfortunately for you and your crew, space food couldnt compete with the savory taste of flesh and you all died eating each other.",
+            "alienWelcomeThem": "When confronted with Alien life you had to act fast! Go to war or put your crew at risk by welcoming strange aliens onto your ship. Ultimately, you chose to welcome them with open arms!",
+            "alienFightThem": "When confronted with Alien life you had to act fast! Go to war or put your crew at risk by welcoming strange aliens onto your ship. Ultimately, you chose to fight them!",
+            "mogBeFriendThem": "When confronted with the Mogs, who are known for mischief, you decide to avoid conflict and allow them onboard. This choice pays off and you gain a true friend in Barf.",
+            "mogGameOver": `Those Mogs are always causing trouble!  Too bad this time it cost you your life, ${storageName}! Better luck next time.`,
+            "finalStageWormhole": "You have faced many tough descisions and landed mars now you have to.....wait, what's going on?",
+            "AlienAlternateGood": "you learned from you mistakes, apologized to the king and continued your journey towards mars.",
+            "alienAlternatePissedOffRoland": `You really did it now didn't you ${storageName}? Though your only potential allies at the time hated you, you managed to keep your life for the time being. `,
+            "goingInAstroidShootExogorth": " You got passed the Exogorth by shooting it.",
+            "goingInAstroidEatenByExogorth": "You were eaten by the Exo-whateverbigthing.",
+            "exogorthAstroidPoopedOut": "You survied the situation by waiting to be pooped uout! Your crew was not too happy with this decision.",
+            "exogorthAstroidShootAt": "You survived the situation by blasting a hole through the exogorth! unlucky for you though, this was King Roland's favorite pet!",
+            "druidiaChoiceWinPrincess": " You showed kindness to the princess and contined your journey towards mars.",
+            "druidiaChoiceThrowPrincess": `You decided to kill the Kings Daughter after he enslaved you and brought you to your deserved death! (Why would you do this ${storageName}?! You monster!)`
+        }
 
+        var gameOverTextDiv = document.getElementById('gameOverTextDiv');
+            for( var i = 0; i < userChoices.length; i++ ) {
+                var gameOverText = document.createElement('p')
+                gameOverText.textContent = conclusions[userChoices[i]];
+                gameOverText.classList.add('gameOverText');
+                gameOverTextDiv.append(gameOverText);
+            }
+    }
 
 //--------------------UserName--------------------------//
 function getUserName() {
-    var userName = document.getElementById('userName').value;
-    var result = document.getElementById('result');
+  var userName = document.getElementById('userName').value;
+  var result = document.getElementById('result');
 
-    if (userName.length > 15) {
-        alert('User name must be less than 15 characters');
-    } else {
-        result.textContent = 'Capitain ' + userName;
-        localStorage.setItem('User', JSON.stringify(userName));
-        introductionText();
-        event.preventDefault();
-        removeUserForm();
-    }
+  if (userName.length > 15) {
+    alert('User name must be less than 15 characters');
+  } else {
+    result.textContent = 'Captain ' + userName;
+    localStorage.setItem('User', JSON.stringify(userName));
+    introductionText();
+    event.preventDefault();
+    removeUserForm();
+  }
 }
 var submitForm = document.getElementById('nameForm');
 submitForm.addEventListener('submit', getUserName, false);
@@ -88,9 +119,9 @@ var loadData = function () {
 //--------------------Intro--------------------------//
 var introText = document.getElementById('textinsert');
 function introductionText() {
-    introText.textContent = `${result.textContent} the world is in a dire situation. Over the past few years melting of the polar ice caps has accelerated. Florida and parts of Italy are completely under water. The world has banned together and found that is possible to establish ourselves on Mars. You have been elected to carry out the initial journey. Your resources will be limited for this journey. How you manage these resources will utlilmatly determine your success. The human race is counting on you in these trying times. Consider your choices carfeully to ensure the completion of your mission.`;
-    startButton.textContent = 'Start Adventure';
-    insertStartButton.append(startButton);
+  introText.textContent = `${result.textContent} the world is in a dire situation. Over the past few years melting of the polar ice caps has accelerated. Florida and parts of Italy are completely under water. The world has banned together and found it possible to establish ourselves on Mars. You have been elected to carry out the initial journey. Your resources will be limited. The human race is counting on you in these trying times. Consider your choices carefully to ensure the completion of your mission.`;
+  startButton.textContent = 'Start Adventure';
+  insertStartButton.append(startButton);
 }
 var startGame = function (event) {
     event.preventDefault();
@@ -209,7 +240,8 @@ var crewMemberChoice = function () {
             crewMemberContinue.style.backgroundColor = '#616161';
             userChoices.push('crewEatingEachOther');
   localStorage.setItem('userChoices', JSON.stringify(userChoices));
-        } gameOver();
+  gameOver();
+        } 
     };
     var crewMemberContinue = document.createElement('BUTTON');
     crewMemberContinue.setAttribute('class', 'leftButton');
@@ -374,6 +406,11 @@ var finalChoice = function () {
         introText.textContent = 'You have made it to Mars';
         background();
         onMarsLanding();
+        userchoices = [];
+        currentLocation = '';
+        localStorage.removeItem('userChoices');
+        localStorage.removeItem('currentLocation');
+
     };
     var failure = function () {
         introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
@@ -683,7 +720,7 @@ function druidiaChoice() {
         druidiaEnd.parentNode.removeChild(druidiaEnd);
     });
 
-}
+};
 
 //--------------------Functions Called--------------------------//
 
