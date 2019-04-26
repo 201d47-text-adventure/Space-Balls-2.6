@@ -64,3 +64,17 @@ a:link {
 a:visited {
     color:yellow;
 }
+
+.gameOverText {
+    color: yellow;
+    font-family: fantasy;
+    z-index: 10000;
+    font-size: 20px;
+    bottom: 30%;
+}
+
+#resultsButton {
+    z-index: 10000;
+    position: absolute;
+    bottom: 50%;
+}
