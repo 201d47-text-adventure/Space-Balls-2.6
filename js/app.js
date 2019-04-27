@@ -404,13 +404,22 @@ var finalChoice = function () {
   }
   var victory = function () {
     introText.textContent = 'You have made it to Mars';
+    continueButton = document.createElement('BUTTON');
+    continueButton.setAttribute('class', 'continueButton');
+    continueButton.textContent = 'Continue';
+    var bottomButton = document.getElementById('continueButton');
+    bottomButton.appendChild(continueButton);
+    continueButton.addEventListener('click', function handler() {
+      this.removeEventListener('click', handler);
+      continueButton.parentNode.removeChild(continueButton);
+      gameOver();
+    });
     background();
     onMarsLanding();
     userchoices = [];
     currentLocation = '';
     localStorage.removeItem('userChoices');
     localStorage.removeItem('currentLocation');
-
   };
   var failure = function () {
     introText.textContent = 'Oh no! Why would you trust Barf to steer the ship?';
