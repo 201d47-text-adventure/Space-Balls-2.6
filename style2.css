@@ -1,34 +1,16 @@
-.container {
-    overflow: hidden;
-  }
-
-.sliding-background {
-    background: url(../Space-Balls-2.6/img/galaxy1.jpg) repeat-x;
-    height: 1600px;
-    width: 6000px;
-    animation: slide 55s linear infinite;
-  }
+body{
+  background-image: url(../Space-Balls-2.6/img/space.jpg)
+}
   
-@keyframes slide{
-    0%{
-      transform: translate3d(0, 0, 0);
-    }
-    100%{
-      transform: translate3d(-3500px, 0, 0);
-    }
-  }
-#gameOverScreen {
-    font-family: fantasy;
-    font-size: 100px;
-    color: red;
-    text-align: center;
-  }
-
 h1 {
   position: absolute;
   text-align: center;
   bottom: 65%;
   left: 35%;
+  font-family: fantasy;
+  font-size: 100px;
+  color: red;
+  text-align: center;
 }
 
 header {
@@ -63,4 +45,25 @@ a:link {
 }
 a:visited {
     color:yellow;
+}
+
+#gameOverTextDiv {
+  position: relative;
+    color: whitesmoke;
+    font-family: fantasy;
+left:35%;
+    font-size: 30px;
+    top: 60%;
+    width: 500px;
+    line-height: 35px;
+}
+
+#resultsButton {
+    z-index: 10000;
+    position: absolute;
+    bottom: 50%;
+}
+#gameOverTextDiv{
+  position: absolute;
+
 }
